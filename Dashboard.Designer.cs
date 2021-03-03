@@ -29,14 +29,17 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pFooter = new System.Windows.Forms.Panel();
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.pHeader = new System.Windows.Forms.Panel();
             this.imgClose = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pFooter.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pFooter
@@ -57,7 +60,7 @@ namespace Project
             this.aFooter.LinkColor = System.Drawing.Color.Snow;
             this.aFooter.Location = new System.Drawing.Point(612, 9);
             this.aFooter.Name = "aFooter";
-            this.aFooter.Size = new System.Drawing.Size(298, 43);
+            this.aFooter.Size = new System.Drawing.Size(238, 34);
             this.aFooter.TabIndex = 1;
             this.aFooter.TabStop = true;
             this.aFooter.Text = "Developed by Dan Hayworth";
@@ -85,6 +88,9 @@ namespace Project
             this.imgClose.TabStop = false;
             this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
             // 
+            // bindingSource1
+            // 
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -101,6 +107,7 @@ namespace Project
             this.pFooter.PerformLayout();
             this.pHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,6 +118,7 @@ namespace Project
         private System.Windows.Forms.LinkLabel aFooter;
         private System.Windows.Forms.Panel pHeader;
         private System.Windows.Forms.PictureBox imgClose;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 
