@@ -88,9 +88,6 @@ namespace Project
             this.imgClose.TabStop = false;
             this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
             // 
-            // bindingSource1
-            // 
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

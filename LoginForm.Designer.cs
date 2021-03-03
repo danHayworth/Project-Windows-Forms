@@ -29,12 +29,15 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.imgClose = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -91,12 +94,24 @@ namespace Project
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // imgClose
+            // 
+            this.imgClose.Image = ((System.Drawing.Image)(resources.GetObject("imgClose.Image")));
+            this.imgClose.Location = new System.Drawing.Point(488, 12);
+            this.imgClose.Name = "imgClose";
+            this.imgClose.Size = new System.Drawing.Size(35, 33);
+            this.imgClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgClose.TabIndex = 6;
+            this.imgClose.TabStop = false;
+            this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(535, 614);
+            this.Controls.Add(this.imgClose);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -110,6 +125,7 @@ namespace Project
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +139,6 @@ namespace Project
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox imgClose;
     }
 }
