@@ -11,7 +11,6 @@ namespace Project
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\danha\source\repos\Project\ProjectDatabase.mdf;Integrated Security=True");
@@ -30,13 +29,13 @@ namespace Project
                 MessageBox.Show("Successfully logged in!");
                 frmMain frm = new frmMain();
                 frm.Show();
-                
+                txtPassword.Clear();
+                txtUsername.Clear();
             }
             else
             {
                 MessageBox.Show("Wrong credentials");
-            }
-            
+            }        
         }
 
         private void imgClose_Click(object sender, EventArgs e)

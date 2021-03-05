@@ -27,5 +27,15 @@ namespace Project
             this.Close();
         }
 
+    
+        private void timer_tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
