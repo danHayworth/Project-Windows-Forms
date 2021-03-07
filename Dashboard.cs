@@ -37,5 +37,10 @@ namespace Project
         {
             timer1.Start();
         }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
