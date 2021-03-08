@@ -73,12 +73,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cabins.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cabins.Designer.cs">
-      <DependentUpon>Cabins.cs</DependentUpon>
-    </Compile>
     <Compile Include="CheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +98,6 @@
       <DependentUpon>ProjectDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Cabins.resx">
-      <DependentUpon>Cabins.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CheckIn.resx">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </EmbeddedResource>
