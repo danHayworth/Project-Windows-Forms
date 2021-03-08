@@ -60,6 +60,7 @@ namespace Project
             this.tabLeftMenu = new System.Windows.Forms.TabControl();
             this.tabAvailability = new System.Windows.Forms.TabPage();
             this.lblAvailability = new System.Windows.Forms.Label();
+            this.pNavigation = new System.Windows.Forms.Panel();
             this.pAvailability = new System.Windows.Forms.Panel();
             this.txtSingleNo = new System.Windows.Forms.TextBox();
             this.txtDoubleNo = new System.Windows.Forms.TextBox();
@@ -87,7 +88,6 @@ namespace Project
             this.btnCab7 = new System.Windows.Forms.Button();
             this.btnCab1 = new System.Windows.Forms.Button();
             this.btnCab2 = new System.Windows.Forms.Button();
-            this.pNavigation = new System.Windows.Forms.Panel();
             this.pFooter.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
@@ -111,7 +111,7 @@ namespace Project
             this.pFooter.BackColor = System.Drawing.Color.Olive;
             this.pFooter.Controls.Add(this.aFooter);
             this.pFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pFooter.Location = new System.Drawing.Point(0, 662);
+            this.pFooter.Location = new System.Drawing.Point(0, 946);
             this.pFooter.Name = "pFooter";
             this.pFooter.Size = new System.Drawing.Size(1842, 338);
             this.pFooter.TabIndex = 0;
@@ -233,7 +233,7 @@ namespace Project
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1408, 427);
+            this.pictureBox1.Location = new System.Drawing.Point(1408, 569);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 153);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -246,7 +246,7 @@ namespace Project
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblLogo.Location = new System.Drawing.Point(1321, 583);
+            this.lblLogo.Location = new System.Drawing.Point(1321, 725);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(379, 30);
             this.lblLogo.TabIndex = 3;
@@ -284,7 +284,7 @@ namespace Project
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataClientsView.Location = new System.Drawing.Point(0, 658);
+            this.dataClientsView.Location = new System.Drawing.Point(0, 942);
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataClientsView.RowHeadersWidth = 51;
@@ -367,7 +367,7 @@ namespace Project
             this.lblCurent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurent.AutoSize = true;
             this.lblCurent.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurent.Location = new System.Drawing.Point(9, 614);
+            this.lblCurent.Location = new System.Drawing.Point(9, 898);
             this.lblCurent.Name = "lblCurent";
             this.lblCurent.Size = new System.Drawing.Size(259, 30);
             this.lblCurent.TabIndex = 10;
@@ -387,8 +387,10 @@ namespace Project
             // 
             // tabAvailability
             // 
+            this.tabAvailability.AutoScroll = true;
             this.tabAvailability.BackColor = System.Drawing.Color.AliceBlue;
             this.tabAvailability.Controls.Add(this.lblAvailability);
+            this.tabAvailability.Controls.Add(this.pNavigation);
             this.tabAvailability.Controls.Add(this.pAvailability);
             this.tabAvailability.Location = new System.Drawing.Point(4, 29);
             this.tabAvailability.Name = "tabAvailability";
@@ -407,6 +409,13 @@ namespace Project
             this.lblAvailability.TabIndex = 12;
             this.lblAvailability.Text = "Availability";
             // 
+            // pNavigation
+            // 
+            this.pNavigation.Location = new System.Drawing.Point(398, 3);
+            this.pNavigation.Name = "pNavigation";
+            this.pNavigation.Size = new System.Drawing.Size(840, 503);
+            this.pNavigation.TabIndex = 13;
+            // 
             // pAvailability
             // 
             this.pAvailability.BackColor = System.Drawing.Color.White;
@@ -420,14 +429,15 @@ namespace Project
             this.pAvailability.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pAvailability.Location = new System.Drawing.Point(37, 154);
             this.pAvailability.Name = "pAvailability";
-            this.pAvailability.Size = new System.Drawing.Size(244, 202);
+            this.pAvailability.Size = new System.Drawing.Size(226, 234);
             this.pAvailability.TabIndex = 11;
             // 
             // txtSingleNo
             // 
             this.txtSingleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSingleNo.Enabled = false;
             this.txtSingleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSingleNo.Location = new System.Drawing.Point(165, 150);
+            this.txtSingleNo.Location = new System.Drawing.Point(147, 150);
             this.txtSingleNo.Name = "txtSingleNo";
             this.txtSingleNo.Size = new System.Drawing.Size(61, 28);
             this.txtSingleNo.TabIndex = 17;
@@ -435,8 +445,9 @@ namespace Project
             // txtDoubleNo
             // 
             this.txtDoubleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDoubleNo.Enabled = false;
             this.txtDoubleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoubleNo.Location = new System.Drawing.Point(165, 80);
+            this.txtDoubleNo.Location = new System.Drawing.Point(147, 80);
             this.txtDoubleNo.Name = "txtDoubleNo";
             this.txtDoubleNo.Size = new System.Drawing.Size(61, 28);
             this.txtDoubleNo.TabIndex = 18;
@@ -444,8 +455,9 @@ namespace Project
             // txtSuiteNo
             // 
             this.txtSuiteNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSuiteNo.Enabled = false;
             this.txtSuiteNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuiteNo.Location = new System.Drawing.Point(165, 16);
+            this.txtSuiteNo.Location = new System.Drawing.Point(147, 16);
             this.txtSuiteNo.Name = "txtSuiteNo";
             this.txtSuiteNo.Size = new System.Drawing.Size(61, 28);
             this.txtSuiteNo.TabIndex = 16;
@@ -455,7 +467,7 @@ namespace Project
             this.lblSingle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSingle.AutoSize = true;
             this.lblSingle.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSingle.Location = new System.Drawing.Point(54, 155);
+            this.lblSingle.Location = new System.Drawing.Point(36, 155);
             this.lblSingle.Name = "lblSingle";
             this.lblSingle.Size = new System.Drawing.Size(77, 22);
             this.lblSingle.TabIndex = 15;
@@ -466,7 +478,7 @@ namespace Project
             this.lblDouble.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDouble.AutoSize = true;
             this.lblDouble.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDouble.Location = new System.Drawing.Point(43, 85);
+            this.lblDouble.Location = new System.Drawing.Point(25, 85);
             this.lblDouble.Name = "lblDouble";
             this.lblDouble.Size = new System.Drawing.Size(86, 22);
             this.lblDouble.TabIndex = 14;
@@ -477,7 +489,7 @@ namespace Project
             this.lblSuite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSuite.AutoSize = true;
             this.lblSuite.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuite.Location = new System.Drawing.Point(69, 20);
+            this.lblSuite.Location = new System.Drawing.Point(51, 20);
             this.lblSuite.Name = "lblSuite";
             this.lblSuite.Size = new System.Drawing.Size(65, 22);
             this.lblSuite.TabIndex = 13;
@@ -492,10 +504,10 @@ namespace Project
             this.tabCabins.Controls.Add(this.pSingle);
             this.tabCabins.Controls.Add(this.pDouble);
             this.tabCabins.Controls.Add(this.pSuite);
-            this.tabCabins.Location = new System.Drawing.Point(4, 25);
+            this.tabCabins.Location = new System.Drawing.Point(4, 29);
             this.tabCabins.Name = "tabCabins";
             this.tabCabins.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCabins.Size = new System.Drawing.Size(1170, 474);
+            this.tabCabins.Size = new System.Drawing.Size(1244, 464);
             this.tabCabins.TabIndex = 1;
             this.tabCabins.Text = "Cabins";
             // 
@@ -723,21 +735,13 @@ namespace Project
             this.btnCab2.Text = "Cabin 2";
             this.btnCab2.UseVisualStyleBackColor = false;
             // 
-            // pNavigation
-            // 
-            this.pNavigation.Location = new System.Drawing.Point(10, 114);
-            this.pNavigation.Name = "pNavigation";
-            this.pNavigation.Size = new System.Drawing.Size(840, 503);
-            this.pNavigation.TabIndex = 13;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1842, 1000);
+            this.ClientSize = new System.Drawing.Size(1842, 1284);
             this.Controls.Add(this.tabLeftMenu);
-            this.Controls.Add(this.pNavigation);
             this.Controls.Add(this.lblCurent);
             this.Controls.Add(this.btnBookings);
             this.Controls.Add(this.btnCheckIn);

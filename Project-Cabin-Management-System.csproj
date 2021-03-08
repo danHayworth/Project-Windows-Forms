@@ -73,6 +73,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cabins.cs" />
     <Compile Include="CheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
