@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -13,29 +14,24 @@ namespace Project
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\danha\source\repos\Project\ProjectDatabase.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("select * from Users where username=@username and password = @password", con);
-            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+            ArrayList user = new ArrayList();
+            Users admin = new Users(1, "danha", "danha", "dan@email.com");
+            Users staff = new Users(2, "user", "user", "user@email.com");
 
-            con.Open();
-            int i = cmd.ExecuteNonQuery();
-            con.Close();
-            if (dt.Rows.Count > 0)
+            user.Add(admin);
+            user.Add(staff);
+            foreach(Users obj in user)
             {
-                MessageBox.Show("Successfully logged in!");
-                frmMain frm = new frmMain();
-                frm.Show();
-                txtPassword.Clear();
-                txtUsername.Clear();
+                if (txtUsername.Text == obj.Username && txtPassword.Text == obj.Password)
+                {
+                    frmMain frm = new frmMain();
+                    frm.Show();
+                    txtPassword.Clear();
+                    txtUsername.Clear();
+                }
+
             }
-            else
-            {
-                MessageBox.Show("Wrong credentials");
-            }        
+                    
         }
 
         private void imgClose_Click(object sender, EventArgs e)

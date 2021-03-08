@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,9 @@ namespace Project
 {
     public partial class frmMain : Form
     {
+        ArrayList cabs = new ArrayList();
+        
+        
         public frmMain()
         {
             InitializeComponent();
@@ -36,72 +40,54 @@ namespace Project
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
             timer1.Start();
+            Cabins cabin1 = new Cabins(1, "Suite", 1, false);
+            Cabins cabin2 = new Cabins(2, "Suite", 2, false);
+            Cabins cabin3 = new Cabins(3, "Double", 3, false);
+            Cabins cabin4 = new Cabins(4, "Double", 4, false);
+            Cabins cabin5 = new Cabins(5, "Single", 5, false);
+            Cabins cabin6 = new Cabins(6, "Suite", 6, false);
+            Cabins cabin7 = new Cabins(7, "Suite", 7, false);
+            Cabins cabin8 = new Cabins(8, "Double", 8, false);
+            Cabins cabin9 = new Cabins(9, "Double", 9, false);
+            Cabins cabin10 = new Cabins(10, "Single", 10, false);
+            cabs.Add(cabin1);
+            cabs.Add(cabin2);
+            cabs.Add(cabin3);
+            cabs.Add(cabin4);
+            cabs.Add(cabin5);
+            cabs.Add(cabin6);
+            cabs.Add(cabin7);
+            cabs.Add(cabin8);
+            cabs.Add(cabin9);
+            cabs.Add(cabin10);
             getAvailability();
 
         }
         
         private void getAvailability()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\danha\source\repos\Project\ProjectDatabase.mdf;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd;
-            SqlDataReader dr;
-            string suite = "Select type, inuse from Cabins where type ='suite' and inuse = 'false'";
-            cmd = new SqlCommand(suite, con);
-            dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
+            int s = 0;
+            int d = 0;
+            int sin = 0;
+            foreach (Cabins cab in cabs)
             {
-                int i = 0;
-                while (dr.Read())
+                if(cab.Type == "Suite" && cab.Inuse == false)
                 {
-                    i++;
+                    s++;
                 }
-                txtSuiteNo.Text = i.ToString();
-            }
-            else
-            {
-                txtSuiteNo.Text= "0";
-            }
-            dr.Close();
-            string doub = "Select type, inuse from Cabins where type ='double' and inuse = 'false'";
-            cmd = new SqlCommand(doub, con);
-            dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                int i = 0;
-                while (dr.Read())
+                if (cab.Type == "Double" && cab.Inuse == false)
                 {
-                    i++;
+                    d++;
                 }
-                txtDoubleNo.Text = i.ToString();
-            }
-            else
-            {
-                txtDoubleNo.Text = "0";
-            }
-            dr.Close();
-            string sing = "Select type, inuse from Cabins where type ='single' and inuse = 'false'";
-            cmd = new SqlCommand(sing, con);
-            dr = cmd.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                int i = 0;
-                while (dr.Read())
+                if (cab.Type == "Single" && cab.Inuse == false)
                 {
-                    i++;
+                    sin++;
                 }
-                txtSingleNo.Text = i.ToString();
             }
-            else
-            {
-                txtSingleNo.Text = "0";
-            }
-            dr.Close();
+            txtSuiteNo.Text += s.ToString();
+            txtDoubleNo.Text += d.ToString();           
+            txtSingleNo.Text += sin.ToString();
         }
 
     }
