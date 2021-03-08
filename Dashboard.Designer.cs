@@ -37,12 +37,12 @@ namespace Project
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.pHeader = new System.Windows.Forms.Panel();
             this.lblLoggedUSer = new System.Windows.Forms.Label();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
             this.imgClose = new System.Windows.Forms.PictureBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.dataClientsView = new System.Windows.Forms.DataGridView();
@@ -58,36 +58,36 @@ namespace Project
             this.lblCurent = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabLeftMenu = new System.Windows.Forms.TabControl();
-            this.tabCabins = new System.Windows.Forms.TabPage();
-            this.pSuite = new System.Windows.Forms.Panel();
-            this.btnCab2 = new System.Windows.Forms.Button();
-            this.btnCab1 = new System.Windows.Forms.Button();
-            this.btnCab7 = new System.Windows.Forms.Button();
-            this.btnCab6 = new System.Windows.Forms.Button();
-            this.pDouble = new System.Windows.Forms.Panel();
-            this.btnCab4 = new System.Windows.Forms.Button();
-            this.btnCab3 = new System.Windows.Forms.Button();
-            this.btnCab9 = new System.Windows.Forms.Button();
-            this.btnCab8 = new System.Windows.Forms.Button();
-            this.pSingle = new System.Windows.Forms.Panel();
-            this.btnCab5 = new System.Windows.Forms.Button();
-            this.btnCab10 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabAvailability = new System.Windows.Forms.TabPage();
-            this.pAvailability = new System.Windows.Forms.Panel();
-            this.lblSuite = new System.Windows.Forms.Label();
-            this.lblDouble = new System.Windows.Forms.Label();
-            this.lblSingle = new System.Windows.Forms.Label();
-            this.txtSuiteNo = new System.Windows.Forms.TextBox();
-            this.txtDoubleNo = new System.Windows.Forms.TextBox();
-            this.txtSingleNo = new System.Windows.Forms.TextBox();
             this.lblAvailability = new System.Windows.Forms.Label();
-            this.pNavigation = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pAvailability = new System.Windows.Forms.Panel();
+            this.txtSingleNo = new System.Windows.Forms.TextBox();
+            this.txtDoubleNo = new System.Windows.Forms.TextBox();
+            this.txtSuiteNo = new System.Windows.Forms.TextBox();
+            this.lblSingle = new System.Windows.Forms.Label();
+            this.lblDouble = new System.Windows.Forms.Label();
+            this.lblSuite = new System.Windows.Forms.Label();
+            this.tabCabins = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pSingle = new System.Windows.Forms.Panel();
+            this.btnCab10 = new System.Windows.Forms.Button();
+            this.btnCab5 = new System.Windows.Forms.Button();
+            this.pDouble = new System.Windows.Forms.Panel();
+            this.btnCab8 = new System.Windows.Forms.Button();
+            this.btnCab9 = new System.Windows.Forms.Button();
+            this.btnCab3 = new System.Windows.Forms.Button();
+            this.btnCab4 = new System.Windows.Forms.Button();
+            this.pSuite = new System.Windows.Forms.Panel();
+            this.btnCab6 = new System.Windows.Forms.Button();
+            this.btnCab7 = new System.Windows.Forms.Button();
+            this.btnCab1 = new System.Windows.Forms.Button();
+            this.btnCab2 = new System.Windows.Forms.Button();
+            this.pNavigation = new System.Windows.Forms.Panel();
             this.pFooter.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
@@ -95,15 +95,15 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.dataClientsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabLeftMenu.SuspendLayout();
-            this.tabCabins.SuspendLayout();
-            this.pSuite.SuspendLayout();
-            this.pDouble.SuspendLayout();
-            this.pSingle.SuspendLayout();
             this.tabAvailability.SuspendLayout();
             this.pAvailability.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tabCabins.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pSingle.SuspendLayout();
+            this.pDouble.SuspendLayout();
+            this.pSuite.SuspendLayout();
             this.SuspendLayout();
             // 
             // pFooter
@@ -111,9 +111,9 @@ namespace Project
             this.pFooter.BackColor = System.Drawing.Color.Olive;
             this.pFooter.Controls.Add(this.aFooter);
             this.pFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pFooter.Location = new System.Drawing.Point(0, 830);
+            this.pFooter.Location = new System.Drawing.Point(0, 662);
             this.pFooter.Name = "pFooter";
-            this.pFooter.Size = new System.Drawing.Size(1810, 173);
+            this.pFooter.Size = new System.Drawing.Size(1842, 338);
             this.pFooter.TabIndex = 0;
             // 
             // aFooter
@@ -124,7 +124,7 @@ namespace Project
             this.aFooter.AutoSize = true;
             this.aFooter.Font = new System.Drawing.Font("Trajan Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aFooter.LinkColor = System.Drawing.Color.Snow;
-            this.aFooter.Location = new System.Drawing.Point(814, 146);
+            this.aFooter.Location = new System.Drawing.Point(814, 311);
             this.aFooter.Name = "aFooter";
             this.aFooter.Size = new System.Drawing.Size(458, 18);
             this.aFooter.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace Project
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1810, 108);
+            this.pHeader.Size = new System.Drawing.Size(1842, 108);
             this.pHeader.TabIndex = 1;
             // 
             // lblLoggedUSer
@@ -160,17 +160,39 @@ namespace Project
             this.lblLoggedUSer.TabIndex = 14;
             this.lblLoggedUSer.Text = "     ";
             // 
+            // lblSearch
+            // 
+            this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
+            this.lblSearch.Font = new System.Drawing.Font("Trajan Pro", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.White;
+            this.lblSearch.Location = new System.Drawing.Point(751, 19);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(226, 22);
+            this.lblSearch.TabIndex = 9;
+            this.lblSearch.Text = "Search guest by name:";
+            // 
             // lblTime
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Trajan Pro", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(1610, 72);
+            this.lblTime.Location = new System.Drawing.Point(1642, 72);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(82, 30);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = "Time:";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(755, 44);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(374, 28);
+            this.txtSearch.TabIndex = 8;
             // 
             // lblUser
             // 
@@ -189,7 +211,7 @@ namespace Project
             this.lblClock.AutoSize = true;
             this.lblClock.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClock.ForeColor = System.Drawing.Color.White;
-            this.lblClock.Location = new System.Drawing.Point(1698, 72);
+            this.lblClock.Location = new System.Drawing.Point(1730, 72);
             this.lblClock.Name = "lblClock";
             this.lblClock.Size = new System.Drawing.Size(109, 30);
             this.lblClock.TabIndex = 8;
@@ -199,7 +221,7 @@ namespace Project
             // 
             this.imgClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgClose.Image = ((System.Drawing.Image)(resources.GetObject("imgClose.Image")));
-            this.imgClose.Location = new System.Drawing.Point(1760, 3);
+            this.imgClose.Location = new System.Drawing.Point(1792, 3);
             this.imgClose.Name = "imgClose";
             this.imgClose.Size = new System.Drawing.Size(47, 46);
             this.imgClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -207,32 +229,11 @@ namespace Project
             this.imgClose.TabStop = false;
             this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
             // 
-            // lblSearch
-            // 
-            this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Font = new System.Drawing.Font("Trajan Pro", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(735, 19);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(226, 22);
-            this.lblSearch.TabIndex = 9;
-            this.lblSearch.Text = "Search guest by name:";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(739, 44);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 28);
-            this.txtSearch.TabIndex = 8;
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1350, 423);
+            this.pictureBox1.Location = new System.Drawing.Point(1408, 427);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 153);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,10 +242,11 @@ namespace Project
             // 
             // lblLogo
             // 
+            this.lblLogo.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblLogo.Location = new System.Drawing.Point(1263, 579);
+            this.lblLogo.Location = new System.Drawing.Point(1321, 583);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(379, 30);
             this.lblLogo.TabIndex = 3;
@@ -282,12 +284,12 @@ namespace Project
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataClientsView.Location = new System.Drawing.Point(0, 661);
+            this.dataClientsView.Location = new System.Drawing.Point(0, 658);
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataClientsView.RowHeadersWidth = 51;
             this.dataClientsView.RowTemplate.Height = 24;
-            this.dataClientsView.Size = new System.Drawing.Size(1810, 288);
+            this.dataClientsView.Size = new System.Drawing.Size(1842, 288);
             this.dataClientsView.TabIndex = 4;
             // 
             // clientNAME
@@ -334,25 +336,22 @@ namespace Project
             // 
             // btnCheckIn
             // 
-            this.btnCheckIn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCheckIn.BackColor = System.Drawing.Color.Olive;
             this.btnCheckIn.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckIn.ForeColor = System.Drawing.Color.White;
-            this.btnCheckIn.Location = new System.Drawing.Point(1653, 239);
+            this.btnCheckIn.Location = new System.Drawing.Point(1268, 139);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(115, 84);
             this.btnCheckIn.TabIndex = 6;
             this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = false;
-            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnBookings
             // 
-            this.btnBookings.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnBookings.BackColor = System.Drawing.Color.Olive;
             this.btnBookings.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookings.ForeColor = System.Drawing.Color.White;
-            this.btnBookings.Location = new System.Drawing.Point(1653, 349);
+            this.btnBookings.Location = new System.Drawing.Point(1431, 139);
             this.btnBookings.Name = "btnBookings";
             this.btnBookings.Size = new System.Drawing.Size(115, 84);
             this.btnBookings.TabIndex = 7;
@@ -368,7 +367,7 @@ namespace Project
             this.lblCurent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurent.AutoSize = true;
             this.lblCurent.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurent.Location = new System.Drawing.Point(9, 617);
+            this.lblCurent.Location = new System.Drawing.Point(9, 614);
             this.lblCurent.Name = "lblCurent";
             this.lblCurent.Size = new System.Drawing.Size(259, 30);
             this.lblCurent.TabIndex = 10;
@@ -378,237 +377,35 @@ namespace Project
             // 
             this.tabLeftMenu.Controls.Add(this.tabAvailability);
             this.tabLeftMenu.Controls.Add(this.tabCabins);
+            this.tabLeftMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabLeftMenu.Location = new System.Drawing.Point(10, 114);
             this.tabLeftMenu.Name = "tabLeftMenu";
             this.tabLeftMenu.SelectedIndex = 0;
-            this.tabLeftMenu.Size = new System.Drawing.Size(1178, 503);
+            this.tabLeftMenu.Size = new System.Drawing.Size(1252, 497);
             this.tabLeftMenu.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabLeftMenu.TabIndex = 13;
-            // 
-            // tabCabins
-            // 
-            this.tabCabins.BackColor = System.Drawing.Color.AliceBlue;
-            this.tabCabins.Controls.Add(this.panel3);
-            this.tabCabins.Controls.Add(this.panel2);
-            this.tabCabins.Controls.Add(this.panel1);
-            this.tabCabins.Controls.Add(this.pSingle);
-            this.tabCabins.Controls.Add(this.pDouble);
-            this.tabCabins.Controls.Add(this.pSuite);
-            this.tabCabins.Location = new System.Drawing.Point(4, 25);
-            this.tabCabins.Name = "tabCabins";
-            this.tabCabins.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCabins.Size = new System.Drawing.Size(1170, 474);
-            this.tabCabins.TabIndex = 1;
-            this.tabCabins.Text = "Cabins";
-            // 
-            // pSuite
-            // 
-            this.pSuite.BackColor = System.Drawing.Color.White;
-            this.pSuite.Controls.Add(this.btnCab6);
-            this.pSuite.Controls.Add(this.btnCab7);
-            this.pSuite.Controls.Add(this.btnCab1);
-            this.pSuite.Controls.Add(this.btnCab2);
-            this.pSuite.Location = new System.Drawing.Point(29, 83);
-            this.pSuite.Name = "pSuite";
-            this.pSuite.Size = new System.Drawing.Size(336, 386);
-            this.pSuite.TabIndex = 29;
-            // 
-            // btnCab2
-            // 
-            this.btnCab2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab2.BackColor = System.Drawing.Color.Olive;
-            this.btnCab2.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab2.ForeColor = System.Drawing.Color.White;
-            this.btnCab2.Location = new System.Drawing.Point(185, 75);
-            this.btnCab2.Name = "btnCab2";
-            this.btnCab2.Size = new System.Drawing.Size(115, 84);
-            this.btnCab2.TabIndex = 9;
-            this.btnCab2.Text = "Cabin 2";
-            this.btnCab2.UseVisualStyleBackColor = false;
-            // 
-            // btnCab1
-            // 
-            this.btnCab1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab1.BackColor = System.Drawing.Color.Olive;
-            this.btnCab1.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab1.ForeColor = System.Drawing.Color.White;
-            this.btnCab1.Location = new System.Drawing.Point(18, 75);
-            this.btnCab1.Name = "btnCab1";
-            this.btnCab1.Size = new System.Drawing.Size(115, 84);
-            this.btnCab1.TabIndex = 10;
-            this.btnCab1.Text = "Cabin 1";
-            this.btnCab1.UseVisualStyleBackColor = false;
-            // 
-            // btnCab7
-            // 
-            this.btnCab7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab7.BackColor = System.Drawing.Color.Olive;
-            this.btnCab7.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab7.ForeColor = System.Drawing.Color.White;
-            this.btnCab7.Location = new System.Drawing.Point(185, 232);
-            this.btnCab7.Name = "btnCab7";
-            this.btnCab7.Size = new System.Drawing.Size(115, 84);
-            this.btnCab7.TabIndex = 13;
-            this.btnCab7.Text = "Cabin 7";
-            this.btnCab7.UseVisualStyleBackColor = false;
-            // 
-            // btnCab6
-            // 
-            this.btnCab6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab6.BackColor = System.Drawing.Color.Olive;
-            this.btnCab6.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab6.ForeColor = System.Drawing.Color.White;
-            this.btnCab6.Location = new System.Drawing.Point(18, 232);
-            this.btnCab6.Name = "btnCab6";
-            this.btnCab6.Size = new System.Drawing.Size(115, 84);
-            this.btnCab6.TabIndex = 14;
-            this.btnCab6.Text = "Cabin 6";
-            this.btnCab6.UseVisualStyleBackColor = false;
-            // 
-            // pDouble
-            // 
-            this.pDouble.BackColor = System.Drawing.Color.White;
-            this.pDouble.Controls.Add(this.btnCab8);
-            this.pDouble.Controls.Add(this.btnCab9);
-            this.pDouble.Controls.Add(this.btnCab3);
-            this.pDouble.Controls.Add(this.btnCab4);
-            this.pDouble.Location = new System.Drawing.Point(457, 83);
-            this.pDouble.Name = "pDouble";
-            this.pDouble.Size = new System.Drawing.Size(362, 385);
-            this.pDouble.TabIndex = 30;
-            // 
-            // btnCab4
-            // 
-            this.btnCab4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab4.BackColor = System.Drawing.Color.Olive;
-            this.btnCab4.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab4.ForeColor = System.Drawing.Color.White;
-            this.btnCab4.Location = new System.Drawing.Point(206, 75);
-            this.btnCab4.Name = "btnCab4";
-            this.btnCab4.Size = new System.Drawing.Size(115, 84);
-            this.btnCab4.TabIndex = 7;
-            this.btnCab4.Text = "Cabin 4";
-            this.btnCab4.UseVisualStyleBackColor = false;
-            // 
-            // btnCab3
-            // 
-            this.btnCab3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab3.BackColor = System.Drawing.Color.Olive;
-            this.btnCab3.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab3.ForeColor = System.Drawing.Color.White;
-            this.btnCab3.Location = new System.Drawing.Point(29, 75);
-            this.btnCab3.Name = "btnCab3";
-            this.btnCab3.Size = new System.Drawing.Size(115, 84);
-            this.btnCab3.TabIndex = 8;
-            this.btnCab3.Text = "Cabin 3";
-            this.btnCab3.UseVisualStyleBackColor = false;
-            // 
-            // btnCab9
-            // 
-            this.btnCab9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab9.BackColor = System.Drawing.Color.Olive;
-            this.btnCab9.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab9.ForeColor = System.Drawing.Color.White;
-            this.btnCab9.Location = new System.Drawing.Point(206, 232);
-            this.btnCab9.Name = "btnCab9";
-            this.btnCab9.Size = new System.Drawing.Size(115, 84);
-            this.btnCab9.TabIndex = 11;
-            this.btnCab9.Text = "Cabin 9";
-            this.btnCab9.UseVisualStyleBackColor = false;
-            // 
-            // btnCab8
-            // 
-            this.btnCab8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab8.BackColor = System.Drawing.Color.Olive;
-            this.btnCab8.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab8.ForeColor = System.Drawing.Color.White;
-            this.btnCab8.Location = new System.Drawing.Point(29, 232);
-            this.btnCab8.Name = "btnCab8";
-            this.btnCab8.Size = new System.Drawing.Size(115, 84);
-            this.btnCab8.TabIndex = 12;
-            this.btnCab8.Text = "Cabin 8";
-            this.btnCab8.UseVisualStyleBackColor = false;
-            // 
-            // pSingle
-            // 
-            this.pSingle.BackColor = System.Drawing.Color.White;
-            this.pSingle.Controls.Add(this.btnCab10);
-            this.pSingle.Controls.Add(this.btnCab5);
-            this.pSingle.Location = new System.Drawing.Point(929, 83);
-            this.pSingle.Name = "pSingle";
-            this.pSingle.Size = new System.Drawing.Size(191, 385);
-            this.pSingle.TabIndex = 31;
-            // 
-            // btnCab5
-            // 
-            this.btnCab5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab5.BackColor = System.Drawing.Color.Olive;
-            this.btnCab5.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab5.ForeColor = System.Drawing.Color.White;
-            this.btnCab5.Location = new System.Drawing.Point(36, 75);
-            this.btnCab5.Name = "btnCab5";
-            this.btnCab5.Size = new System.Drawing.Size(115, 84);
-            this.btnCab5.TabIndex = 15;
-            this.btnCab5.Text = "Cabin 5";
-            this.btnCab5.UseVisualStyleBackColor = false;
-            // 
-            // btnCab10
-            // 
-            this.btnCab10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCab10.BackColor = System.Drawing.Color.Olive;
-            this.btnCab10.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCab10.ForeColor = System.Drawing.Color.White;
-            this.btnCab10.Location = new System.Drawing.Point(36, 232);
-            this.btnCab10.Name = "btnCab10";
-            this.btnCab10.Size = new System.Drawing.Size(115, 84);
-            this.btnCab10.TabIndex = 16;
-            this.btnCab10.Text = "Cabin 10";
-            this.btnCab10.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label3.Location = new System.Drawing.Point(121, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 29);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Suite";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(125, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 29);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Double";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(39, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 29);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Single";
             // 
             // tabAvailability
             // 
             this.tabAvailability.BackColor = System.Drawing.Color.AliceBlue;
             this.tabAvailability.Controls.Add(this.lblAvailability);
             this.tabAvailability.Controls.Add(this.pAvailability);
-            this.tabAvailability.Location = new System.Drawing.Point(4, 25);
+            this.tabAvailability.Location = new System.Drawing.Point(4, 29);
             this.tabAvailability.Name = "tabAvailability";
             this.tabAvailability.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAvailability.Size = new System.Drawing.Size(1170, 474);
+            this.tabAvailability.Size = new System.Drawing.Size(1244, 464);
             this.tabAvailability.TabIndex = 0;
             this.tabAvailability.Text = "Availability";
+            // 
+            // lblAvailability
+            // 
+            this.lblAvailability.AutoSize = true;
+            this.lblAvailability.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailability.Location = new System.Drawing.Point(32, 86);
+            this.lblAvailability.Name = "lblAvailability";
+            this.lblAvailability.Size = new System.Drawing.Size(172, 30);
+            this.lblAvailability.TabIndex = 12;
+            this.lblAvailability.Text = "Availability";
             // 
             // pAvailability
             // 
@@ -626,27 +423,32 @@ namespace Project
             this.pAvailability.Size = new System.Drawing.Size(244, 202);
             this.pAvailability.TabIndex = 11;
             // 
-            // lblSuite
+            // txtSingleNo
             // 
-            this.lblSuite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSuite.AutoSize = true;
-            this.lblSuite.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuite.Location = new System.Drawing.Point(69, 20);
-            this.lblSuite.Name = "lblSuite";
-            this.lblSuite.Size = new System.Drawing.Size(65, 22);
-            this.lblSuite.TabIndex = 13;
-            this.lblSuite.Text = "Suite:";
+            this.txtSingleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSingleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSingleNo.Location = new System.Drawing.Point(165, 150);
+            this.txtSingleNo.Name = "txtSingleNo";
+            this.txtSingleNo.Size = new System.Drawing.Size(61, 28);
+            this.txtSingleNo.TabIndex = 17;
             // 
-            // lblDouble
+            // txtDoubleNo
             // 
-            this.lblDouble.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDouble.AutoSize = true;
-            this.lblDouble.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDouble.Location = new System.Drawing.Point(43, 85);
-            this.lblDouble.Name = "lblDouble";
-            this.lblDouble.Size = new System.Drawing.Size(86, 22);
-            this.lblDouble.TabIndex = 14;
-            this.lblDouble.Text = "Double:";
+            this.txtDoubleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDoubleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoubleNo.Location = new System.Drawing.Point(165, 80);
+            this.txtDoubleNo.Name = "txtDoubleNo";
+            this.txtDoubleNo.Size = new System.Drawing.Size(61, 28);
+            this.txtDoubleNo.TabIndex = 18;
+            // 
+            // txtSuiteNo
+            // 
+            this.txtSuiteNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSuiteNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuiteNo.Location = new System.Drawing.Point(165, 16);
+            this.txtSuiteNo.Name = "txtSuiteNo";
+            this.txtSuiteNo.Size = new System.Drawing.Size(61, 28);
+            this.txtSuiteNo.TabIndex = 16;
             // 
             // lblSingle
             // 
@@ -659,67 +461,43 @@ namespace Project
             this.lblSingle.TabIndex = 15;
             this.lblSingle.Text = "Single:";
             // 
-            // txtSuiteNo
+            // lblDouble
             // 
-            this.txtSuiteNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSuiteNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuiteNo.Location = new System.Drawing.Point(165, 16);
-            this.txtSuiteNo.Name = "txtSuiteNo";
-            this.txtSuiteNo.Size = new System.Drawing.Size(61, 28);
-            this.txtSuiteNo.TabIndex = 16;
+            this.lblDouble.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDouble.AutoSize = true;
+            this.lblDouble.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDouble.Location = new System.Drawing.Point(43, 85);
+            this.lblDouble.Name = "lblDouble";
+            this.lblDouble.Size = new System.Drawing.Size(86, 22);
+            this.lblDouble.TabIndex = 14;
+            this.lblDouble.Text = "Double:";
             // 
-            // txtDoubleNo
+            // lblSuite
             // 
-            this.txtDoubleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDoubleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoubleNo.Location = new System.Drawing.Point(165, 80);
-            this.txtDoubleNo.Name = "txtDoubleNo";
-            this.txtDoubleNo.Size = new System.Drawing.Size(61, 28);
-            this.txtDoubleNo.TabIndex = 18;
+            this.lblSuite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSuite.AutoSize = true;
+            this.lblSuite.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuite.Location = new System.Drawing.Point(69, 20);
+            this.lblSuite.Name = "lblSuite";
+            this.lblSuite.Size = new System.Drawing.Size(65, 22);
+            this.lblSuite.TabIndex = 13;
+            this.lblSuite.Text = "Suite:";
             // 
-            // txtSingleNo
+            // tabCabins
             // 
-            this.txtSingleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSingleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSingleNo.Location = new System.Drawing.Point(165, 150);
-            this.txtSingleNo.Name = "txtSingleNo";
-            this.txtSingleNo.Size = new System.Drawing.Size(61, 28);
-            this.txtSingleNo.TabIndex = 17;
-            // 
-            // lblAvailability
-            // 
-            this.lblAvailability.AutoSize = true;
-            this.lblAvailability.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvailability.Location = new System.Drawing.Point(32, 86);
-            this.lblAvailability.Name = "lblAvailability";
-            this.lblAvailability.Size = new System.Drawing.Size(172, 30);
-            this.lblAvailability.TabIndex = 12;
-            this.lblAvailability.Text = "Availability";
-            // 
-            // pNavigation
-            // 
-            this.pNavigation.Location = new System.Drawing.Point(10, 114);
-            this.pNavigation.Name = "pNavigation";
-            this.pNavigation.Size = new System.Drawing.Size(840, 503);
-            this.pNavigation.TabIndex = 13;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Olive;
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(29, 17);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 66);
-            this.panel1.TabIndex = 35;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Olive;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(458, 17);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(360, 66);
-            this.panel2.TabIndex = 36;
+            this.tabCabins.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabCabins.Controls.Add(this.panel3);
+            this.tabCabins.Controls.Add(this.panel2);
+            this.tabCabins.Controls.Add(this.panel1);
+            this.tabCabins.Controls.Add(this.pSingle);
+            this.tabCabins.Controls.Add(this.pDouble);
+            this.tabCabins.Controls.Add(this.pSuite);
+            this.tabCabins.Location = new System.Drawing.Point(4, 25);
+            this.tabCabins.Name = "tabCabins";
+            this.tabCabins.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCabins.Size = new System.Drawing.Size(1170, 474);
+            this.tabCabins.TabIndex = 1;
+            this.tabCabins.Text = "Cabins";
             // 
             // panel3
             // 
@@ -730,12 +508,234 @@ namespace Project
             this.panel3.Size = new System.Drawing.Size(191, 66);
             this.panel3.TabIndex = 37;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label1.Location = new System.Drawing.Point(39, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 30);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Single";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Olive;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(458, 17);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(360, 66);
+            this.panel2.TabIndex = 36;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label2.Location = new System.Drawing.Point(125, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 30);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Double";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Olive;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(29, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(335, 66);
+            this.panel1.TabIndex = 35;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label3.Location = new System.Drawing.Point(121, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 30);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Suite";
+            // 
+            // pSingle
+            // 
+            this.pSingle.BackColor = System.Drawing.Color.White;
+            this.pSingle.Controls.Add(this.btnCab10);
+            this.pSingle.Controls.Add(this.btnCab5);
+            this.pSingle.Location = new System.Drawing.Point(929, 83);
+            this.pSingle.Name = "pSingle";
+            this.pSingle.Size = new System.Drawing.Size(191, 385);
+            this.pSingle.TabIndex = 31;
+            // 
+            // btnCab10
+            // 
+            this.btnCab10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab10.BackColor = System.Drawing.Color.Olive;
+            this.btnCab10.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab10.ForeColor = System.Drawing.Color.White;
+            this.btnCab10.Location = new System.Drawing.Point(36, 232);
+            this.btnCab10.Name = "btnCab10";
+            this.btnCab10.Size = new System.Drawing.Size(115, 84);
+            this.btnCab10.TabIndex = 16;
+            this.btnCab10.Text = "Cabin 10";
+            this.btnCab10.UseVisualStyleBackColor = false;
+            // 
+            // btnCab5
+            // 
+            this.btnCab5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab5.BackColor = System.Drawing.Color.Olive;
+            this.btnCab5.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab5.ForeColor = System.Drawing.Color.White;
+            this.btnCab5.Location = new System.Drawing.Point(36, 75);
+            this.btnCab5.Name = "btnCab5";
+            this.btnCab5.Size = new System.Drawing.Size(115, 84);
+            this.btnCab5.TabIndex = 15;
+            this.btnCab5.Text = "Cabin 5";
+            this.btnCab5.UseVisualStyleBackColor = false;
+            // 
+            // pDouble
+            // 
+            this.pDouble.BackColor = System.Drawing.Color.White;
+            this.pDouble.Controls.Add(this.btnCab8);
+            this.pDouble.Controls.Add(this.btnCab9);
+            this.pDouble.Controls.Add(this.btnCab3);
+            this.pDouble.Controls.Add(this.btnCab4);
+            this.pDouble.Location = new System.Drawing.Point(457, 83);
+            this.pDouble.Name = "pDouble";
+            this.pDouble.Size = new System.Drawing.Size(362, 385);
+            this.pDouble.TabIndex = 30;
+            // 
+            // btnCab8
+            // 
+            this.btnCab8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab8.BackColor = System.Drawing.Color.Olive;
+            this.btnCab8.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab8.ForeColor = System.Drawing.Color.White;
+            this.btnCab8.Location = new System.Drawing.Point(29, 232);
+            this.btnCab8.Name = "btnCab8";
+            this.btnCab8.Size = new System.Drawing.Size(115, 84);
+            this.btnCab8.TabIndex = 12;
+            this.btnCab8.Text = "Cabin 8";
+            this.btnCab8.UseVisualStyleBackColor = false;
+            // 
+            // btnCab9
+            // 
+            this.btnCab9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab9.BackColor = System.Drawing.Color.Olive;
+            this.btnCab9.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab9.ForeColor = System.Drawing.Color.White;
+            this.btnCab9.Location = new System.Drawing.Point(206, 232);
+            this.btnCab9.Name = "btnCab9";
+            this.btnCab9.Size = new System.Drawing.Size(115, 84);
+            this.btnCab9.TabIndex = 11;
+            this.btnCab9.Text = "Cabin 9";
+            this.btnCab9.UseVisualStyleBackColor = false;
+            // 
+            // btnCab3
+            // 
+            this.btnCab3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab3.BackColor = System.Drawing.Color.Olive;
+            this.btnCab3.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab3.ForeColor = System.Drawing.Color.White;
+            this.btnCab3.Location = new System.Drawing.Point(29, 75);
+            this.btnCab3.Name = "btnCab3";
+            this.btnCab3.Size = new System.Drawing.Size(115, 84);
+            this.btnCab3.TabIndex = 8;
+            this.btnCab3.Text = "Cabin 3";
+            this.btnCab3.UseVisualStyleBackColor = false;
+            // 
+            // btnCab4
+            // 
+            this.btnCab4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab4.BackColor = System.Drawing.Color.Olive;
+            this.btnCab4.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab4.ForeColor = System.Drawing.Color.White;
+            this.btnCab4.Location = new System.Drawing.Point(206, 75);
+            this.btnCab4.Name = "btnCab4";
+            this.btnCab4.Size = new System.Drawing.Size(115, 84);
+            this.btnCab4.TabIndex = 7;
+            this.btnCab4.Text = "Cabin 4";
+            this.btnCab4.UseVisualStyleBackColor = false;
+            // 
+            // pSuite
+            // 
+            this.pSuite.BackColor = System.Drawing.Color.White;
+            this.pSuite.Controls.Add(this.btnCab6);
+            this.pSuite.Controls.Add(this.btnCab7);
+            this.pSuite.Controls.Add(this.btnCab1);
+            this.pSuite.Controls.Add(this.btnCab2);
+            this.pSuite.Location = new System.Drawing.Point(29, 83);
+            this.pSuite.Name = "pSuite";
+            this.pSuite.Size = new System.Drawing.Size(336, 386);
+            this.pSuite.TabIndex = 29;
+            // 
+            // btnCab6
+            // 
+            this.btnCab6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab6.BackColor = System.Drawing.Color.Olive;
+            this.btnCab6.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab6.ForeColor = System.Drawing.Color.White;
+            this.btnCab6.Location = new System.Drawing.Point(18, 232);
+            this.btnCab6.Name = "btnCab6";
+            this.btnCab6.Size = new System.Drawing.Size(115, 84);
+            this.btnCab6.TabIndex = 14;
+            this.btnCab6.Text = "Cabin 6";
+            this.btnCab6.UseVisualStyleBackColor = false;
+            // 
+            // btnCab7
+            // 
+            this.btnCab7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab7.BackColor = System.Drawing.Color.Olive;
+            this.btnCab7.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab7.ForeColor = System.Drawing.Color.White;
+            this.btnCab7.Location = new System.Drawing.Point(185, 232);
+            this.btnCab7.Name = "btnCab7";
+            this.btnCab7.Size = new System.Drawing.Size(115, 84);
+            this.btnCab7.TabIndex = 13;
+            this.btnCab7.Text = "Cabin 7";
+            this.btnCab7.UseVisualStyleBackColor = false;
+            // 
+            // btnCab1
+            // 
+            this.btnCab1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab1.BackColor = System.Drawing.Color.Olive;
+            this.btnCab1.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab1.ForeColor = System.Drawing.Color.White;
+            this.btnCab1.Location = new System.Drawing.Point(18, 75);
+            this.btnCab1.Name = "btnCab1";
+            this.btnCab1.Size = new System.Drawing.Size(115, 84);
+            this.btnCab1.TabIndex = 10;
+            this.btnCab1.Text = "Cabin 1";
+            this.btnCab1.UseVisualStyleBackColor = false;
+            // 
+            // btnCab2
+            // 
+            this.btnCab2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCab2.BackColor = System.Drawing.Color.Olive;
+            this.btnCab2.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCab2.ForeColor = System.Drawing.Color.White;
+            this.btnCab2.Location = new System.Drawing.Point(185, 75);
+            this.btnCab2.Name = "btnCab2";
+            this.btnCab2.Size = new System.Drawing.Size(115, 84);
+            this.btnCab2.TabIndex = 9;
+            this.btnCab2.Text = "Cabin 2";
+            this.btnCab2.UseVisualStyleBackColor = false;
+            // 
+            // pNavigation
+            // 
+            this.pNavigation.Location = new System.Drawing.Point(10, 114);
+            this.pNavigation.Name = "pNavigation";
+            this.pNavigation.Size = new System.Drawing.Size(840, 503);
+            this.pNavigation.TabIndex = 13;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1810, 1003);
+            this.ClientSize = new System.Drawing.Size(1842, 1000);
             this.Controls.Add(this.tabLeftMenu);
             this.Controls.Add(this.pNavigation);
             this.Controls.Add(this.lblCurent);
@@ -762,20 +762,20 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.dataClientsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabLeftMenu.ResumeLayout(false);
-            this.tabCabins.ResumeLayout(false);
-            this.pSuite.ResumeLayout(false);
-            this.pDouble.ResumeLayout(false);
-            this.pSingle.ResumeLayout(false);
             this.tabAvailability.ResumeLayout(false);
             this.tabAvailability.PerformLayout();
             this.pAvailability.ResumeLayout(false);
             this.pAvailability.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.tabCabins.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pSingle.ResumeLayout(false);
+            this.pDouble.ResumeLayout(false);
+            this.pSuite.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
