@@ -46,12 +46,13 @@ namespace Project
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogo = new System.Windows.Forms.Label();
             this.dataClientsView = new System.Windows.Forms.DataGridView();
-            this.clientNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientSURNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientPAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientCHECKIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientCHECKOUT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientSERVICES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cleintCabinType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCabinNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnBookings = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -60,12 +61,11 @@ namespace Project
             this.tabLeftMenu = new System.Windows.Forms.TabControl();
             this.tabAvailability = new System.Windows.Forms.TabPage();
             this.lblAvailability = new System.Windows.Forms.Label();
-            this.pNavigation = new System.Windows.Forms.Panel();
             this.pAvailability = new System.Windows.Forms.Panel();
             this.txtSingleNo = new System.Windows.Forms.TextBox();
             this.txtDoubleNo = new System.Windows.Forms.TextBox();
-            this.txtSuiteNo = new System.Windows.Forms.TextBox();
             this.lblSingle = new System.Windows.Forms.Label();
+            this.txtSuiteNo = new System.Windows.Forms.TextBox();
             this.lblDouble = new System.Windows.Forms.Label();
             this.lblSuite = new System.Windows.Forms.Label();
             this.tabCabins = new System.Windows.Forms.TabPage();
@@ -88,6 +88,8 @@ namespace Project
             this.btnCab7 = new System.Windows.Forms.Button();
             this.btnCab1 = new System.Windows.Forms.Button();
             this.btnCab2 = new System.Windows.Forms.Button();
+            this.checkingInBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pFooter.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
@@ -104,6 +106,8 @@ namespace Project
             this.pSingle.SuspendLayout();
             this.pDouble.SuspendLayout();
             this.pSuite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pFooter
@@ -111,9 +115,9 @@ namespace Project
             this.pFooter.BackColor = System.Drawing.Color.Olive;
             this.pFooter.Controls.Add(this.aFooter);
             this.pFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pFooter.Location = new System.Drawing.Point(0, 764);
+            this.pFooter.Location = new System.Drawing.Point(0, 1037);
             this.pFooter.Name = "pFooter";
-            this.pFooter.Size = new System.Drawing.Size(1842, 338);
+            this.pFooter.Size = new System.Drawing.Size(2002, 48);
             this.pFooter.TabIndex = 0;
             // 
             // aFooter
@@ -124,7 +128,7 @@ namespace Project
             this.aFooter.AutoSize = true;
             this.aFooter.Font = new System.Drawing.Font("Trajan Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aFooter.LinkColor = System.Drawing.Color.Snow;
-            this.aFooter.Location = new System.Drawing.Point(814, 311);
+            this.aFooter.Location = new System.Drawing.Point(814, 21);
             this.aFooter.Name = "aFooter";
             this.aFooter.Size = new System.Drawing.Size(458, 18);
             this.aFooter.TabIndex = 1;
@@ -146,7 +150,7 @@ namespace Project
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1842, 108);
+            this.pHeader.Size = new System.Drawing.Size(2002, 108);
             this.pHeader.TabIndex = 1;
             // 
             // lblLoggedUSer
@@ -167,7 +171,7 @@ namespace Project
             this.lblSearch.BackColor = System.Drawing.Color.Transparent;
             this.lblSearch.Font = new System.Drawing.Font("Trajan Pro", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(751, 19);
+            this.lblSearch.Location = new System.Drawing.Point(831, 19);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(226, 22);
             this.lblSearch.TabIndex = 9;
@@ -179,7 +183,7 @@ namespace Project
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Trajan Pro", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(1642, 72);
+            this.lblTime.Location = new System.Drawing.Point(1802, 72);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(82, 30);
             this.lblTime.TabIndex = 9;
@@ -189,7 +193,7 @@ namespace Project
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(755, 44);
+            this.txtSearch.Location = new System.Drawing.Point(835, 44);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(374, 28);
             this.txtSearch.TabIndex = 8;
@@ -211,7 +215,7 @@ namespace Project
             this.lblClock.AutoSize = true;
             this.lblClock.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClock.ForeColor = System.Drawing.Color.White;
-            this.lblClock.Location = new System.Drawing.Point(1730, 72);
+            this.lblClock.Location = new System.Drawing.Point(1890, 72);
             this.lblClock.Name = "lblClock";
             this.lblClock.Size = new System.Drawing.Size(109, 30);
             this.lblClock.TabIndex = 8;
@@ -221,7 +225,7 @@ namespace Project
             // 
             this.imgClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imgClose.Image = ((System.Drawing.Image)(resources.GetObject("imgClose.Image")));
-            this.imgClose.Location = new System.Drawing.Point(1792, 3);
+            this.imgClose.Location = new System.Drawing.Point(1952, 3);
             this.imgClose.Name = "imgClose";
             this.imgClose.Size = new System.Drawing.Size(47, 46);
             this.imgClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -233,7 +237,7 @@ namespace Project
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1408, 478);
+            this.pictureBox1.Location = new System.Drawing.Point(1568, 469);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 153);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -246,7 +250,7 @@ namespace Project
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblLogo.Location = new System.Drawing.Point(1321, 634);
+            this.lblLogo.Location = new System.Drawing.Point(1481, 625);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(379, 30);
             this.lblLogo.TabIndex = 3;
@@ -270,12 +274,13 @@ namespace Project
             this.dataClientsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataClientsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataClientsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clientNAME,
-            this.clientSURNAME,
-            this.clientPAS,
-            this.clientCHECKIN,
-            this.clientCHECKOUT,
-            this.clientSERVICES});
+            this.clientName,
+            this.clientSurname,
+            this.clientCheckIn,
+            this.clientCheckOut,
+            this.cleintCabinType,
+            this.clientCabinNumber,
+            this.clientNotes});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -284,55 +289,62 @@ namespace Project
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataClientsView.Location = new System.Drawing.Point(0, 760);
+            this.dataClientsView.Location = new System.Drawing.Point(10, 732);
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataClientsView.RowHeadersWidth = 51;
             this.dataClientsView.RowTemplate.Height = 24;
-            this.dataClientsView.Size = new System.Drawing.Size(1842, 288);
+            this.dataClientsView.Size = new System.Drawing.Size(1980, 299);
             this.dataClientsView.TabIndex = 4;
             // 
-            // clientNAME
+            // clientName
             // 
-            this.clientNAME.HeaderText = "Name";
-            this.clientNAME.MinimumWidth = 6;
-            this.clientNAME.Name = "clientNAME";
-            this.clientNAME.ReadOnly = true;
+            this.clientName.HeaderText = "Name";
+            this.clientName.MinimumWidth = 6;
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
             // 
-            // clientSURNAME
+            // clientSurname
             // 
-            this.clientSURNAME.HeaderText = "Surname";
-            this.clientSURNAME.MinimumWidth = 6;
-            this.clientSURNAME.Name = "clientSURNAME";
-            this.clientSURNAME.ReadOnly = true;
+            this.clientSurname.HeaderText = "Surname";
+            this.clientSurname.MinimumWidth = 6;
+            this.clientSurname.Name = "clientSurname";
+            this.clientSurname.ReadOnly = true;
             // 
-            // clientPAS
+            // clientCheckIn
             // 
-            this.clientPAS.HeaderText = "Cabin Number";
-            this.clientPAS.MinimumWidth = 6;
-            this.clientPAS.Name = "clientPAS";
-            this.clientPAS.ReadOnly = true;
+            this.clientCheckIn.HeaderText = "Check in";
+            this.clientCheckIn.MinimumWidth = 6;
+            this.clientCheckIn.Name = "clientCheckIn";
+            this.clientCheckIn.ReadOnly = true;
             // 
-            // clientCHECKIN
+            // clientCheckOut
             // 
-            this.clientCHECKIN.HeaderText = "Check in";
-            this.clientCHECKIN.MinimumWidth = 6;
-            this.clientCHECKIN.Name = "clientCHECKIN";
-            this.clientCHECKIN.ReadOnly = true;
+            this.clientCheckOut.HeaderText = "Check out";
+            this.clientCheckOut.MinimumWidth = 6;
+            this.clientCheckOut.Name = "clientCheckOut";
+            this.clientCheckOut.ReadOnly = true;
             // 
-            // clientCHECKOUT
+            // cleintCabinType
             // 
-            this.clientCHECKOUT.HeaderText = "Check out";
-            this.clientCHECKOUT.MinimumWidth = 6;
-            this.clientCHECKOUT.Name = "clientCHECKOUT";
-            this.clientCHECKOUT.ReadOnly = true;
+            this.cleintCabinType.HeaderText = "Cabin type";
+            this.cleintCabinType.MinimumWidth = 6;
+            this.cleintCabinType.Name = "cleintCabinType";
+            this.cleintCabinType.ReadOnly = true;
             // 
-            // clientSERVICES
+            // clientCabinNumber
             // 
-            this.clientSERVICES.HeaderText = "Services";
-            this.clientSERVICES.MinimumWidth = 6;
-            this.clientSERVICES.Name = "clientSERVICES";
-            this.clientSERVICES.ReadOnly = true;
+            this.clientCabinNumber.HeaderText = "Cabin Number";
+            this.clientCabinNumber.MinimumWidth = 6;
+            this.clientCabinNumber.Name = "clientCabinNumber";
+            this.clientCabinNumber.ReadOnly = true;
+            // 
+            // clientNotes
+            // 
+            this.clientNotes.HeaderText = "Notes";
+            this.clientNotes.MinimumWidth = 6;
+            this.clientNotes.Name = "clientNotes";
+            this.clientNotes.ReadOnly = true;
             // 
             // btnCheckIn
             // 
@@ -345,6 +357,7 @@ namespace Project
             this.btnCheckIn.TabIndex = 6;
             this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = false;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnBookings
             // 
@@ -367,7 +380,7 @@ namespace Project
             this.lblCurent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurent.AutoSize = true;
             this.lblCurent.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurent.Location = new System.Drawing.Point(9, 716);
+            this.lblCurent.Location = new System.Drawing.Point(9, 699);
             this.lblCurent.Name = "lblCurent";
             this.lblCurent.Size = new System.Drawing.Size(259, 30);
             this.lblCurent.TabIndex = 10;
@@ -381,7 +394,7 @@ namespace Project
             this.tabLeftMenu.Location = new System.Drawing.Point(10, 114);
             this.tabLeftMenu.Name = "tabLeftMenu";
             this.tabLeftMenu.SelectedIndex = 0;
-            this.tabLeftMenu.Size = new System.Drawing.Size(1252, 580);
+            this.tabLeftMenu.Size = new System.Drawing.Size(1252, 564);
             this.tabLeftMenu.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabLeftMenu.TabIndex = 13;
             // 
@@ -390,12 +403,11 @@ namespace Project
             this.tabAvailability.AutoScroll = true;
             this.tabAvailability.BackColor = System.Drawing.Color.AliceBlue;
             this.tabAvailability.Controls.Add(this.lblAvailability);
-            this.tabAvailability.Controls.Add(this.pNavigation);
             this.tabAvailability.Controls.Add(this.pAvailability);
             this.tabAvailability.Location = new System.Drawing.Point(4, 29);
             this.tabAvailability.Name = "tabAvailability";
             this.tabAvailability.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAvailability.Size = new System.Drawing.Size(1244, 547);
+            this.tabAvailability.Size = new System.Drawing.Size(1244, 531);
             this.tabAvailability.TabIndex = 0;
             this.tabAvailability.Text = "Availability";
             // 
@@ -403,18 +415,11 @@ namespace Project
             // 
             this.lblAvailability.AutoSize = true;
             this.lblAvailability.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvailability.Location = new System.Drawing.Point(32, 86);
+            this.lblAvailability.Location = new System.Drawing.Point(41, 95);
             this.lblAvailability.Name = "lblAvailability";
             this.lblAvailability.Size = new System.Drawing.Size(172, 30);
             this.lblAvailability.TabIndex = 12;
             this.lblAvailability.Text = "Availability";
-            // 
-            // pNavigation
-            // 
-            this.pNavigation.Location = new System.Drawing.Point(398, 3);
-            this.pNavigation.Name = "pNavigation";
-            this.pNavigation.Size = new System.Drawing.Size(840, 503);
-            this.pNavigation.TabIndex = 13;
             // 
             // pAvailability
             // 
@@ -422,63 +427,58 @@ namespace Project
             this.pAvailability.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pAvailability.Controls.Add(this.txtSingleNo);
             this.pAvailability.Controls.Add(this.txtDoubleNo);
-            this.pAvailability.Controls.Add(this.txtSuiteNo);
             this.pAvailability.Controls.Add(this.lblSingle);
+            this.pAvailability.Controls.Add(this.txtSuiteNo);
             this.pAvailability.Controls.Add(this.lblDouble);
             this.pAvailability.Controls.Add(this.lblSuite);
             this.pAvailability.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pAvailability.Location = new System.Drawing.Point(37, 154);
+            this.pAvailability.Location = new System.Drawing.Point(46, 136);
             this.pAvailability.Name = "pAvailability";
-            this.pAvailability.Size = new System.Drawing.Size(226, 234);
+            this.pAvailability.Size = new System.Drawing.Size(312, 343);
             this.pAvailability.TabIndex = 11;
             // 
             // txtSingleNo
             // 
-            this.txtSingleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSingleNo.Enabled = false;
             this.txtSingleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSingleNo.Location = new System.Drawing.Point(147, 150);
+            this.txtSingleNo.Location = new System.Drawing.Point(149, 235);
             this.txtSingleNo.Name = "txtSingleNo";
             this.txtSingleNo.Size = new System.Drawing.Size(61, 28);
             this.txtSingleNo.TabIndex = 17;
             // 
             // txtDoubleNo
             // 
-            this.txtDoubleNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDoubleNo.Enabled = false;
             this.txtDoubleNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoubleNo.Location = new System.Drawing.Point(147, 80);
+            this.txtDoubleNo.Location = new System.Drawing.Point(149, 148);
             this.txtDoubleNo.Name = "txtDoubleNo";
             this.txtDoubleNo.Size = new System.Drawing.Size(61, 28);
             this.txtDoubleNo.TabIndex = 18;
             // 
-            // txtSuiteNo
-            // 
-            this.txtSuiteNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSuiteNo.Enabled = false;
-            this.txtSuiteNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuiteNo.Location = new System.Drawing.Point(147, 16);
-            this.txtSuiteNo.Name = "txtSuiteNo";
-            this.txtSuiteNo.Size = new System.Drawing.Size(61, 28);
-            this.txtSuiteNo.TabIndex = 16;
-            // 
             // lblSingle
             // 
-            this.lblSingle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSingle.AutoSize = true;
             this.lblSingle.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSingle.Location = new System.Drawing.Point(36, 155);
+            this.lblSingle.Location = new System.Drawing.Point(47, 241);
             this.lblSingle.Name = "lblSingle";
             this.lblSingle.Size = new System.Drawing.Size(77, 22);
             this.lblSingle.TabIndex = 15;
             this.lblSingle.Text = "Single:";
             // 
+            // txtSuiteNo
+            // 
+            this.txtSuiteNo.Enabled = false;
+            this.txtSuiteNo.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuiteNo.Location = new System.Drawing.Point(149, 48);
+            this.txtSuiteNo.Name = "txtSuiteNo";
+            this.txtSuiteNo.Size = new System.Drawing.Size(61, 28);
+            this.txtSuiteNo.TabIndex = 16;
+            // 
             // lblDouble
             // 
-            this.lblDouble.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDouble.AutoSize = true;
             this.lblDouble.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDouble.Location = new System.Drawing.Point(25, 85);
+            this.lblDouble.Location = new System.Drawing.Point(38, 154);
             this.lblDouble.Name = "lblDouble";
             this.lblDouble.Size = new System.Drawing.Size(86, 22);
             this.lblDouble.TabIndex = 14;
@@ -486,10 +486,9 @@ namespace Project
             // 
             // lblSuite
             // 
-            this.lblSuite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSuite.AutoSize = true;
             this.lblSuite.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuite.Location = new System.Drawing.Point(51, 20);
+            this.lblSuite.Location = new System.Drawing.Point(59, 54);
             this.lblSuite.Name = "lblSuite";
             this.lblSuite.Size = new System.Drawing.Size(65, 22);
             this.lblSuite.TabIndex = 13;
@@ -507,7 +506,7 @@ namespace Project
             this.tabCabins.Location = new System.Drawing.Point(4, 29);
             this.tabCabins.Name = "tabCabins";
             this.tabCabins.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCabins.Size = new System.Drawing.Size(1244, 547);
+            this.tabCabins.Size = new System.Drawing.Size(1244, 531);
             this.tabCabins.TabIndex = 1;
             this.tabCabins.Text = "Cabins";
             // 
@@ -735,17 +734,25 @@ namespace Project
             this.btnCab2.Text = "Cabin 2";
             this.btnCab2.UseVisualStyleBackColor = false;
             // 
+            // checkingInBindingSource
+            // 
+            this.checkingInBindingSource.DataSource = typeof(Project.CheckingIn);
+            // 
+            // bookingsBindingSource
+            // 
+            this.bookingsBindingSource.DataSource = typeof(Project.Bookings);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1842, 1102);
+            this.ClientSize = new System.Drawing.Size(2002, 1085);
             this.Controls.Add(this.tabLeftMenu);
+            this.Controls.Add(this.dataClientsView);
             this.Controls.Add(this.lblCurent);
             this.Controls.Add(this.btnBookings);
             this.Controls.Add(this.btnCheckIn);
-            this.Controls.Add(this.dataClientsView);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pHeader);
@@ -780,6 +787,8 @@ namespace Project
             this.pSingle.ResumeLayout(false);
             this.pDouble.ResumeLayout(false);
             this.pSuite.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -805,12 +814,6 @@ namespace Project
         private System.Windows.Forms.Label lblCurent;
         private System.Windows.Forms.Label lblLoggedUSer;
         private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientNAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientSURNAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientPAS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientCHECKIN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientCHECKOUT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientSERVICES;
         private System.Windows.Forms.TabControl tabLeftMenu;
         private System.Windows.Forms.TabPage tabAvailability;
         private System.Windows.Forms.Label lblAvailability;
@@ -838,10 +841,18 @@ namespace Project
         private System.Windows.Forms.Button btnCab7;
         private System.Windows.Forms.Button btnCab1;
         private System.Windows.Forms.Button btnCab2;
-        private System.Windows.Forms.Panel pNavigation;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.BindingSource checkingInBindingSource;
+        private System.Windows.Forms.BindingSource bookingsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientCheckIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientCheckOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cleintCabinType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientCabinNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientNotes;
     }
 }
 

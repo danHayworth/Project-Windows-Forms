@@ -16,5 +16,11 @@ namespace Project
         {
             InitializeComponent();
         }
+
+        private void frmCheckIn_Load(object sender, EventArgs e)
+        {
+            dateInBook.MinDate = DateTime.Now;
+            dateOutBook.MinDate = DateTime.Now;
+        }
     }
 }

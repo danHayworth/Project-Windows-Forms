@@ -14,8 +14,8 @@ namespace Project
 {
     public partial class frmMain : Form
     {
-        ArrayList cabs = new ArrayList();
-        
+        public static ArrayList cabs = new ArrayList();
+        public static ArrayList inCabin = new ArrayList();
         
         public frmMain()
         {
@@ -31,7 +31,7 @@ namespace Project
         {
             this.Close();
         }
-
+    
     
         private void timer_tick(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace Project
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+            timer1.Start();         
             Cabins cabin1 = new Cabins(1, "Suite", 1, false);
             Cabins cabin2 = new Cabins(2, "Suite", 2, false);
             Cabins cabin3 = new Cabins(3, "Double", 3, false);
@@ -61,10 +61,10 @@ namespace Project
             cabs.Add(cabin8);
             cabs.Add(cabin9);
             cabs.Add(cabin10);
-            getAvailability();
-
-        }
-        
+            updateCabin();
+            getAvailability();         
+            addClients();
+        }       
         private void getAvailability()
         {
             int s = 0;
@@ -90,5 +90,29 @@ namespace Project
             txtSingleNo.Text += sin.ToString();
         }
 
+        private void addClients()
+        {
+            foreach(CheckingIn c in inCabin)
+            {
+                dataClientsView.Rows.Add(c.Name, c.Surname, c.CheckIn, c.CheckOut, c.CabinType, c.CabinNumber, c.Notes);
+            }
+        }
+        private void updateCabin()
+        {
+            CheckingIn client1 = new CheckingIn(256365, "Passport", "Dan", "Hayworth", "09-03-2021", "11-03-2021", "No notes", "Suite", 1);
+            inCabin.Add(client1);
+            cabs.RemoveAt(0) ;
+            Cabins cabin1 = new Cabins(1, "Suite", 1, true);
+            cabs.Add(cabin1);
+            btnCab1.BackColor = Color.Red;
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            frmCheckIn frm = new frmCheckIn();
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Show();
+            
+        }
     }
 }
