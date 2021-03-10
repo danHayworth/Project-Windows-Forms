@@ -22,19 +22,53 @@ namespace Project
             dateInBooking.MinDate = DateTime.Now;
             dateOutBooking.MinDate = DateTime.Now;
         }
-
-        private void btnBooking_Click(object sender, EventArgs e)
-        {
-            Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
-            frmMain.booked.Add(newBooking);
-            frmMain f = new frmMain();
-            f.Show();
-            this.Close();
-        }
-
         private void imgClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
+                frmMain.booked.Add(newBooking);
+                frmMain f = new frmMain();
+                f.Show();
+                this.Close();
+            }
+        }
+
+        private void txtNameBooking_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtNameBooking.Text == "")
+            {
+                MessageBox.Show("Name cannot be blank");
+                btnBooking.Enabled = false;
+            }
+            else
+            {
+                btnBooking.Enabled = true;
+            }
+        }
+
+        private void txtSurnameBooking_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtSurnameBooking.Text == "")
+            {
+                MessageBox.Show("Surname cannot be blank");
+                btnBooking.Enabled = false;
+            }
+            else
+            {
+                btnBooking.Enabled = true;
+            }
+
+        }
+
+        private void txtPhoneBooking_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

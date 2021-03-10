@@ -34,13 +34,13 @@ namespace Project
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pFooter = new System.Windows.Forms.Panel();
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.pHeader = new System.Windows.Forms.Panel();
             this.lblLoggedUSer = new System.Windows.Forms.Label();
-            this.lblSearch = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
             this.imgClose = new System.Windows.Forms.PictureBox();
@@ -69,8 +69,6 @@ namespace Project
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCurentList = new System.Windows.Forms.Button();
             this.btnAddBooking = new System.Windows.Forms.Button();
-            this.bookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkingInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -90,6 +88,8 @@ namespace Project
             this.btnCab7 = new System.Windows.Forms.Button();
             this.btnCab1 = new System.Windows.Forms.Button();
             this.btnCab2 = new System.Windows.Forms.Button();
+            this.bookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkingInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pFooter.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
@@ -97,14 +97,14 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.dataClientsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pSingle.SuspendLayout();
             this.pDouble.SuspendLayout();
             this.pSuite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pFooter
@@ -138,9 +138,7 @@ namespace Project
             // 
             this.pHeader.BackColor = System.Drawing.Color.Olive;
             this.pHeader.Controls.Add(this.lblLoggedUSer);
-            this.pHeader.Controls.Add(this.lblSearch);
             this.pHeader.Controls.Add(this.lblTime);
-            this.pHeader.Controls.Add(this.txtSearch);
             this.pHeader.Controls.Add(this.lblUser);
             this.pHeader.Controls.Add(this.lblClock);
             this.pHeader.Controls.Add(this.imgClose);
@@ -161,19 +159,6 @@ namespace Project
             this.lblLoggedUSer.TabIndex = 14;
             this.lblLoggedUSer.Text = "     ";
             // 
-            // lblSearch
-            // 
-            this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearch.Font = new System.Drawing.Font("Trajan Pro", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(783, 46);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(226, 22);
-            this.lblSearch.TabIndex = 9;
-            this.lblSearch.Text = "Search guest by name:";
-            // 
             // lblTime
             // 
             this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -185,15 +170,6 @@ namespace Project
             this.lblTime.Size = new System.Drawing.Size(82, 30);
             this.lblTime.TabIndex = 9;
             this.lblTime.Text = "Time:";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(787, 71);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 28);
-            this.txtSearch.TabIndex = 8;
             // 
             // lblUser
             // 
@@ -264,7 +240,7 @@ namespace Project
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -287,12 +263,22 @@ namespace Project
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataClientsView.GridColor = System.Drawing.Color.SaddleBrown;
             this.dataClientsView.Location = new System.Drawing.Point(-1, 751);
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Olive;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataClientsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataClientsView.RowHeadersWidth = 51;
+            this.dataClientsView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Olive;
             this.dataClientsView.RowTemplate.Height = 24;
-            this.dataClientsView.Size = new System.Drawing.Size(1907, 374);
+            this.dataClientsView.Size = new System.Drawing.Size(1907, 224);
             this.dataClientsView.TabIndex = 4;
             // 
             // clientName
@@ -353,7 +339,7 @@ namespace Project
             // 
             // btnCheckIn
             // 
-            this.btnCheckIn.BackColor = System.Drawing.Color.Olive;
+            this.btnCheckIn.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnCheckIn.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckIn.ForeColor = System.Drawing.Color.White;
             this.btnCheckIn.Location = new System.Drawing.Point(1251, 170);
@@ -366,7 +352,7 @@ namespace Project
             // 
             // btnBookings
             // 
-            this.btnBookings.BackColor = System.Drawing.Color.Olive;
+            this.btnBookings.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnBookings.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookings.ForeColor = System.Drawing.Color.White;
             this.btnBookings.Location = new System.Drawing.Point(1590, 170);
@@ -386,6 +372,7 @@ namespace Project
             this.lblCurent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurent.AutoSize = true;
             this.lblCurent.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurent.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblCurent.Location = new System.Drawing.Point(11, 710);
             this.lblCurent.Name = "lblCurent";
             this.lblCurent.Size = new System.Drawing.Size(259, 30);
@@ -398,14 +385,14 @@ namespace Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBookings.BackgroundColor = System.Drawing.Color.Ivory;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Olive;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -414,13 +401,23 @@ namespace Project
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dataGridBookings.GridColor = System.Drawing.Color.Black;
+            this.dataGridBookings.GridColor = System.Drawing.Color.SaddleBrown;
             this.dataGridBookings.Location = new System.Drawing.Point(-1, 753);
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridBookings.RowHeadersWidth = 51;
+            this.dataGridBookings.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Olive;
             this.dataGridBookings.RowTemplate.Height = 24;
-            this.dataGridBookings.Size = new System.Drawing.Size(1907, 371);
+            this.dataGridBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridBookings.Size = new System.Drawing.Size(1907, 222);
             this.dataGridBookings.TabIndex = 12;
             this.dataGridBookings.Visible = false;
             // 
@@ -468,7 +465,7 @@ namespace Project
             // 
             // btnCurentList
             // 
-            this.btnCurentList.BackColor = System.Drawing.Color.Olive;
+            this.btnCurentList.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnCurentList.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCurentList.ForeColor = System.Drawing.Color.White;
             this.btnCurentList.Location = new System.Drawing.Point(1754, 170);
@@ -481,7 +478,7 @@ namespace Project
             // 
             // btnAddBooking
             // 
-            this.btnAddBooking.BackColor = System.Drawing.Color.Olive;
+            this.btnAddBooking.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnAddBooking.Font = new System.Drawing.Font("Trajan Pro", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBooking.ForeColor = System.Drawing.Color.White;
             this.btnAddBooking.Location = new System.Drawing.Point(1420, 170);
@@ -492,17 +489,9 @@ namespace Project
             this.btnAddBooking.UseVisualStyleBackColor = false;
             this.btnAddBooking.Click += new System.EventHandler(this.btnAddBooking_Click);
             // 
-            // bookingsBindingSource
-            // 
-            this.bookingsBindingSource.DataSource = typeof(Project.Bookings);
-            // 
-            // checkingInBindingSource
-            // 
-            this.checkingInBindingSource.DataSource = typeof(Project.CheckingIn);
-            // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Olive;
+            this.panel3.BackColor = System.Drawing.Color.SaddleBrown;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(805, 171);
             this.panel3.Name = "panel3";
@@ -522,7 +511,7 @@ namespace Project
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Olive;
+            this.panel2.BackColor = System.Drawing.Color.SaddleBrown;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(406, 171);
             this.panel2.Name = "panel2";
@@ -542,7 +531,7 @@ namespace Project
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Olive;
+            this.panel1.BackColor = System.Drawing.Color.SaddleBrown;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(27, 171);
             this.panel1.Name = "panel1";
@@ -724,6 +713,14 @@ namespace Project
             this.btnCab2.Text = "Cabin 2";
             this.btnCab2.UseVisualStyleBackColor = false;
             // 
+            // bookingsBindingSource
+            // 
+            this.bookingsBindingSource.DataSource = typeof(Project.Bookings);
+            // 
+            // checkingInBindingSource
+            // 
+            this.checkingInBindingSource.DataSource = typeof(Project.CheckingIn);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -763,8 +760,6 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.dataClientsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBookings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -774,6 +769,8 @@ namespace Project
             this.pSingle.ResumeLayout(false);
             this.pDouble.ResumeLayout(false);
             this.pSuite.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bookingsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkingInBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -791,8 +788,6 @@ namespace Project
         private System.Windows.Forms.DataGridView dataClientsView;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnBookings;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblClock;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTime;

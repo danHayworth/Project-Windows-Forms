@@ -112,6 +112,7 @@ namespace Project
             this.txtSurnameBooking.Name = "txtSurnameBooking";
             this.txtSurnameBooking.Size = new System.Drawing.Size(278, 28);
             this.txtSurnameBooking.TabIndex = 26;
+            this.txtSurnameBooking.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurnameBooking_Validating);
             // 
             // txtNameBooking
             // 
@@ -120,6 +121,7 @@ namespace Project
             this.txtNameBooking.Name = "txtNameBooking";
             this.txtNameBooking.Size = new System.Drawing.Size(278, 28);
             this.txtNameBooking.TabIndex = 25;
+            this.txtNameBooking.Validating += new System.ComponentModel.CancelEventHandler(this.txtNameBooking_Validating);
             // 
             // label5
             // 
@@ -168,6 +170,7 @@ namespace Project
             this.txtPhoneBooking.Name = "txtPhoneBooking";
             this.txtPhoneBooking.Size = new System.Drawing.Size(278, 28);
             this.txtPhoneBooking.TabIndex = 35;
+            this.txtPhoneBooking.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneBooking_KeyPress);
             // 
             // lblPhoneBooking
             // 
@@ -175,7 +178,7 @@ namespace Project
             this.lblPhoneBooking.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneBooking.Location = new System.Drawing.Point(141, 204);
             this.lblPhoneBooking.Name = "lblPhoneBooking";
-            this.lblPhoneBooking.Size = new System.Drawing.Size(91, 28);
+            this.lblPhoneBooking.Size = new System.Drawing.Size(73, 22);
             this.lblPhoneBooking.TabIndex = 34;
             this.lblPhoneBooking.Text = "Phone";
             // 
@@ -194,6 +197,7 @@ namespace Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(820, 714);
             this.Controls.Add(this.imgClose);
             this.Controls.Add(this.txtPhoneBooking);

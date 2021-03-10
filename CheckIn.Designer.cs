@@ -125,6 +125,7 @@ namespace Project
             this.txtNameBook.Name = "txtNameBook";
             this.txtNameBook.Size = new System.Drawing.Size(278, 28);
             this.txtNameBook.TabIndex = 6;
+            this.txtNameBook.Validating += new System.ComponentModel.CancelEventHandler(this.txtNameBook_Validating);
             // 
             // txtSurnameBook
             // 
@@ -133,6 +134,7 @@ namespace Project
             this.txtSurnameBook.Name = "txtSurnameBook";
             this.txtSurnameBook.Size = new System.Drawing.Size(278, 28);
             this.txtSurnameBook.TabIndex = 7;
+            this.txtSurnameBook.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurnameBook_Validating);
             // 
             // txtIDBook
             // 
@@ -141,6 +143,7 @@ namespace Project
             this.txtIDBook.Name = "txtIDBook";
             this.txtIDBook.Size = new System.Drawing.Size(278, 28);
             this.txtIDBook.TabIndex = 8;
+            this.txtIDBook.Validating += new System.ComponentModel.CancelEventHandler(this.txtIDBook_Validating);
             // 
             // dateInBook
             // 
@@ -225,6 +228,7 @@ namespace Project
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
             this.radioButton2.Font = new System.Drawing.Font("Trajan Pro", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.Location = new System.Drawing.Point(190, 12);
             this.radioButton2.Name = "radioButton2";
@@ -252,6 +256,7 @@ namespace Project
             this.txtPhoneBook.Name = "txtPhoneBook";
             this.txtPhoneBook.Size = new System.Drawing.Size(278, 28);
             this.txtPhoneBook.TabIndex = 21;
+            this.txtPhoneBook.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneBook_KeyPress);
             // 
             // lblPhone
             // 
@@ -285,6 +290,7 @@ namespace Project
             // 
             // txtCabinNumber
             // 
+            this.txtCabinNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCabinNumber.FormattingEnabled = true;
             this.txtCabinNumber.Items.AddRange(new object[] {
@@ -302,9 +308,12 @@ namespace Project
             this.txtCabinNumber.Name = "txtCabinNumber";
             this.txtCabinNumber.Size = new System.Drawing.Size(278, 30);
             this.txtCabinNumber.TabIndex = 24;
+            this.txtCabinNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtCabinNumber_Validating);
+            this.txtCabinNumber.Validated += new System.EventHandler(this.btnBook_Click);
             // 
             // txtCabinBook
             // 
+            this.txtCabinBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtCabinBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCabinBook.FormattingEnabled = true;
             this.txtCabinBook.Items.AddRange(new object[] {
@@ -315,6 +324,7 @@ namespace Project
             this.txtCabinBook.Name = "txtCabinBook";
             this.txtCabinBook.Size = new System.Drawing.Size(278, 30);
             this.txtCabinBook.TabIndex = 25;
+            this.txtCabinBook.Validating += new System.ComponentModel.CancelEventHandler(this.txtCabinBook_Validating);
             // 
             // frmCheckIn
             // 
