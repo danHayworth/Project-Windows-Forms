@@ -8,13 +8,13 @@ namespace Project
 {
     public class Clients
     {
-        public int IdNumber { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string IdType { get; set; }
-        public Clients(int id, string type, string name, string surname) 
+        public int Phone { get; set; }
+
+        public Clients(string name, string surname, int phone) 
         {
-            this.IdNumber = id;
+            this.Phone = phone;
             this.Name = name;
             this.Surname = surname;
         }

@@ -10,11 +10,15 @@ namespace Project
     {
         public string CabinType { get; set; }
         public int CabinNumber { get; set; }
+        public string IdType { get; set; }
+        public string IdNumber { get; set; }
 
-        public CheckingIn(int id, string type, string name, string surname, string checkin, string checkout, string note, string cabintype, int cabNumber): base(id, type, name, surname, checkin, checkout, note)
+        public CheckingIn(string id, string type, string name, string surname,int phone, string checkin, string checkout, string note, string cabintype, int cabNumber): base(name, surname,phone,checkin,checkout, note)
         {
             this.CabinNumber = cabNumber;
             this.CabinType = cabintype;
+            this.IdType = type;
+            this.IdNumber = id;
         }
     }
 }

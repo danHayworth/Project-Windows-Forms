@@ -29,6 +29,7 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCheckIn));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@ namespace Project
             this.txtNameBook = new System.Windows.Forms.TextBox();
             this.txtSurnameBook = new System.Windows.Forms.TextBox();
             this.txtIDBook = new System.Windows.Forms.TextBox();
-            this.txtCabinBook = new System.Windows.Forms.TextBox();
             this.dateInBook = new System.Windows.Forms.DateTimePicker();
             this.dateOutBook = new System.Windows.Forms.DateTimePicker();
             this.btnBook = new System.Windows.Forms.Button();
@@ -47,6 +47,15 @@ namespace Project
             this.label8 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.imgClose = new System.Windows.Forms.PictureBox();
+            this.txtPhoneBook = new System.Windows.Forms.TextBox();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.txtIdType = new System.Windows.Forms.GroupBox();
+            this.lblCabinNumber = new System.Windows.Forms.Label();
+            this.txtCabinNumber = new System.Windows.Forms.ComboBox();
+            this.txtCabinBook = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
+            this.txtIdType.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +82,7 @@ namespace Project
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 193);
+            this.label3.Location = new System.Drawing.Point(151, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 22);
             this.label3.TabIndex = 2;
@@ -83,7 +92,7 @@ namespace Project
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(151, 295);
+            this.label4.Location = new System.Drawing.Point(151, 374);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 22);
             this.label4.TabIndex = 3;
@@ -93,7 +102,7 @@ namespace Project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(151, 341);
+            this.label5.Location = new System.Drawing.Point(151, 420);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 22);
             this.label5.TabIndex = 4;
@@ -103,7 +112,7 @@ namespace Project
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(151, 247);
+            this.label6.Location = new System.Drawing.Point(151, 284);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 22);
             this.label6.TabIndex = 5;
@@ -128,25 +137,17 @@ namespace Project
             // txtIDBook
             // 
             this.txtIDBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDBook.Location = new System.Drawing.Point(300, 193);
+            this.txtIDBook.Location = new System.Drawing.Point(300, 230);
             this.txtIDBook.Name = "txtIDBook";
             this.txtIDBook.Size = new System.Drawing.Size(278, 28);
             this.txtIDBook.TabIndex = 8;
-            // 
-            // txtCabinBook
-            // 
-            this.txtCabinBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCabinBook.Location = new System.Drawing.Point(300, 244);
-            this.txtCabinBook.Name = "txtCabinBook";
-            this.txtCabinBook.Size = new System.Drawing.Size(278, 28);
-            this.txtCabinBook.TabIndex = 9;
             // 
             // dateInBook
             // 
             this.dateInBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateInBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateInBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateInBook.Location = new System.Drawing.Point(300, 292);
+            this.dateInBook.Location = new System.Drawing.Point(300, 371);
             this.dateInBook.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
             this.dateInBook.MinDate = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
             this.dateInBook.Name = "dateInBook";
@@ -159,7 +160,7 @@ namespace Project
             this.dateOutBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOutBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOutBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOutBook.Location = new System.Drawing.Point(300, 338);
+            this.dateOutBook.Location = new System.Drawing.Point(300, 417);
             this.dateOutBook.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
             this.dateOutBook.MinDate = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
             this.dateOutBook.Name = "dateOutBook";
@@ -172,18 +173,19 @@ namespace Project
             this.btnBook.BackColor = System.Drawing.Color.Olive;
             this.btnBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBook.ForeColor = System.Drawing.Color.White;
-            this.btnBook.Location = new System.Drawing.Point(321, 505);
+            this.btnBook.Location = new System.Drawing.Point(321, 584);
             this.btnBook.Name = "btnBook";
             this.btnBook.Size = new System.Drawing.Size(88, 41);
             this.btnBook.TabIndex = 12;
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(151, 391);
+            this.label7.Location = new System.Drawing.Point(151, 470);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 22);
             this.label7.TabIndex = 13;
@@ -192,7 +194,7 @@ namespace Project
             // txtNotesBook
             // 
             this.txtNotesBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotesBook.Location = new System.Drawing.Point(300, 388);
+            this.txtNotesBook.Location = new System.Drawing.Point(300, 467);
             this.txtNotesBook.Multiline = true;
             this.txtNotesBook.Name = "txtNotesBook";
             this.txtNotesBook.Size = new System.Drawing.Size(278, 100);
@@ -202,7 +204,7 @@ namespace Project
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(151, 153);
+            this.label8.Location = new System.Drawing.Point(151, 190);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 22);
             this.label8.TabIndex = 15;
@@ -212,7 +214,7 @@ namespace Project
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Trajan Pro", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(300, 153);
+            this.radioButton1.Location = new System.Drawing.Point(6, 12);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(169, 23);
             this.radioButton1.TabIndex = 17;
@@ -224,7 +226,7 @@ namespace Project
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Trajan Pro", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(475, 153);
+            this.radioButton2.Location = new System.Drawing.Point(190, 12);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(103, 23);
             this.radioButton2.TabIndex = 18;
@@ -232,20 +234,106 @@ namespace Project
             this.radioButton2.Text = "Passport";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // imgClose
+            // 
+            this.imgClose.Image = ((System.Drawing.Image)(resources.GetObject("imgClose.Image")));
+            this.imgClose.Location = new System.Drawing.Point(717, 12);
+            this.imgClose.Name = "imgClose";
+            this.imgClose.Size = new System.Drawing.Size(35, 33);
+            this.imgClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgClose.TabIndex = 19;
+            this.imgClose.TabStop = false;
+            this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
+            // 
+            // txtPhoneBook
+            // 
+            this.txtPhoneBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneBook.Location = new System.Drawing.Point(300, 149);
+            this.txtPhoneBook.Name = "txtPhoneBook";
+            this.txtPhoneBook.Size = new System.Drawing.Size(278, 28);
+            this.txtPhoneBook.TabIndex = 21;
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(151, 152);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(73, 22);
+            this.lblPhone.TabIndex = 20;
+            this.lblPhone.Text = "Phone";
+            // 
+            // txtIdType
+            // 
+            this.txtIdType.Controls.Add(this.radioButton1);
+            this.txtIdType.Controls.Add(this.radioButton2);
+            this.txtIdType.Location = new System.Drawing.Point(291, 183);
+            this.txtIdType.Name = "txtIdType";
+            this.txtIdType.Size = new System.Drawing.Size(299, 41);
+            this.txtIdType.TabIndex = 22;
+            this.txtIdType.TabStop = false;
+            // 
+            // lblCabinNumber
+            // 
+            this.lblCabinNumber.AutoSize = true;
+            this.lblCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCabinNumber.Location = new System.Drawing.Point(151, 330);
+            this.lblCabinNumber.Name = "lblCabinNumber";
+            this.lblCabinNumber.Size = new System.Drawing.Size(147, 22);
+            this.lblCabinNumber.TabIndex = 23;
+            this.lblCabinNumber.Text = "Cabin number";
+            // 
+            // txtCabinNumber
+            // 
+            this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCabinNumber.FormattingEnabled = true;
+            this.txtCabinNumber.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.txtCabinNumber.Location = new System.Drawing.Point(300, 326);
+            this.txtCabinNumber.Name = "txtCabinNumber";
+            this.txtCabinNumber.Size = new System.Drawing.Size(278, 30);
+            this.txtCabinNumber.TabIndex = 24;
+            // 
+            // txtCabinBook
+            // 
+            this.txtCabinBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCabinBook.FormattingEnabled = true;
+            this.txtCabinBook.Items.AddRange(new object[] {
+            "Suite",
+            "Double",
+            "Single"});
+            this.txtCabinBook.Location = new System.Drawing.Point(300, 281);
+            this.txtCabinBook.Name = "txtCabinBook";
+            this.txtCabinBook.Size = new System.Drawing.Size(278, 30);
+            this.txtCabinBook.TabIndex = 25;
+            // 
             // frmCheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 627);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(764, 741);
+            this.Controls.Add(this.txtCabinBook);
+            this.Controls.Add(this.txtCabinNumber);
+            this.Controls.Add(this.lblCabinNumber);
+            this.Controls.Add(this.txtIdType);
+            this.Controls.Add(this.txtPhoneBook);
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.imgClose);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtNotesBook);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnBook);
             this.Controls.Add(this.dateOutBook);
             this.Controls.Add(this.dateInBook);
-            this.Controls.Add(this.txtCabinBook);
             this.Controls.Add(this.txtIDBook);
             this.Controls.Add(this.txtSurnameBook);
             this.Controls.Add(this.txtNameBook);
@@ -261,6 +349,9 @@ namespace Project
             this.Text = "CheckIn";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmCheckIn_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
+            this.txtIdType.ResumeLayout(false);
+            this.txtIdType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +368,6 @@ namespace Project
         private System.Windows.Forms.TextBox txtNameBook;
         private System.Windows.Forms.TextBox txtSurnameBook;
         private System.Windows.Forms.TextBox txtIDBook;
-        private System.Windows.Forms.TextBox txtCabinBook;
         private System.Windows.Forms.DateTimePicker dateInBook;
         private System.Windows.Forms.DateTimePicker dateOutBook;
         private System.Windows.Forms.Button btnBook;
@@ -286,5 +376,12 @@ namespace Project
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.PictureBox imgClose;
+        private System.Windows.Forms.TextBox txtPhoneBook;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.GroupBox txtIdType;
+        private System.Windows.Forms.Label lblCabinNumber;
+        private System.Windows.Forms.ComboBox txtCabinNumber;
+        private System.Windows.Forms.ComboBox txtCabinBook;
     }
 }

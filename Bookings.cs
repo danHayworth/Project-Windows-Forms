@@ -12,11 +12,10 @@ namespace Project
         public string CheckOut { get; set; }
         public string Notes { get; set; }
 
-        public Bookings(int id, string type, string name, string surname, string checkin, string checkout, string note) : base(id,type,name,surname)
+        public Bookings(string name, string surname, int phone, string checkin, string checkout, string note) : base(name,surname,phone)
         {
             this.CheckIn = checkin;
             this.CheckOut = checkout;
-            this.Notes = note;
             this.Notes = note;
         }
     }
