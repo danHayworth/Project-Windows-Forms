@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Project
 {
     public partial class frmMain : Form
     {
-        public static ArrayList cabs = new ArrayList();
+        public static List<Cabins> cabs = new List<Cabins>();
         public static ArrayList inCabin = new ArrayList();
         public static List<Bookings> booked = new List<Bookings>();
 
@@ -65,6 +66,7 @@ namespace Project
             updateCabin();        
             addClients();
             addBookings();
+            changeColours();
         }       
 
 
@@ -111,6 +113,7 @@ namespace Project
         
             }
         }
+        
         private void updateCabin()
         {
             CheckingIn client1 = new CheckingIn("P256365", "Passport", "Dan", "Hayworth", 021322, "09-03-2021", "11-03-2021", "No notes", "Suite", 1);
@@ -147,5 +150,53 @@ namespace Project
             f.Show();
         }
 
+        private void changeColours()
+        {
+            foreach (CheckingIn c in inCabin)
+            {
+                int val = c.CabinNumber;
+                if (val == 1)
+                {
+                    btnCab1.BackColor = Color.Red;
+                }
+                if (val == 2)
+                {
+                    btnCab2.BackColor = Color.Red;
+                }
+                if (val == 3)
+                {
+                    btnCab3.BackColor = Color.Red;
+                }
+                if (val == 4)
+                {
+                    btnCab4.BackColor = Color.Red;
+                }
+                if (val == 5)
+                {
+                    btnCab5.BackColor = Color.Red;
+                }
+                if (val == 6)
+                {
+                    btnCab6.BackColor = Color.Red;
+                }
+                if (val == 7)
+                {
+                    btnCab7.BackColor = Color.Red;
+                }
+                if (val == 8)
+                {
+                    btnCab8.BackColor = Color.Red;
+                }
+                if (val == 9)
+                {
+                    btnCab9.BackColor = Color.Red;
+                }
+                if (val == 10)
+                {
+                    btnCab10.BackColor = Color.Red;
+                }
+
+            }
+        }
     }
 }

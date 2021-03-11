@@ -264,7 +264,8 @@ namespace Project
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataClientsView.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dataClientsView.Location = new System.Drawing.Point(-1, 751);
+            this.dataClientsView.Location = new System.Drawing.Point(0, 721);
+            this.dataClientsView.MultiSelect = false;
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -278,6 +279,7 @@ namespace Project
             this.dataClientsView.RowHeadersWidth = 51;
             this.dataClientsView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Olive;
             this.dataClientsView.RowTemplate.Height = 24;
+            this.dataClientsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataClientsView.Size = new System.Drawing.Size(1907, 224);
             this.dataClientsView.TabIndex = 4;
             // 
@@ -373,7 +375,7 @@ namespace Project
             this.lblCurent.AutoSize = true;
             this.lblCurent.Font = new System.Drawing.Font("Trajan Pro", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurent.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lblCurent.Location = new System.Drawing.Point(11, 710);
+            this.lblCurent.Location = new System.Drawing.Point(12, 690);
             this.lblCurent.Name = "lblCurent";
             this.lblCurent.Size = new System.Drawing.Size(259, 30);
             this.lblCurent.TabIndex = 10;
@@ -402,7 +404,7 @@ namespace Project
             this.Column7,
             this.Column8});
             this.dataGridBookings.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dataGridBookings.Location = new System.Drawing.Point(-1, 753);
+            this.dataGridBookings.Location = new System.Drawing.Point(0, 723);
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -699,6 +701,7 @@ namespace Project
             this.btnCab1.TabIndex = 10;
             this.btnCab1.Text = "Cabin 1";
             this.btnCab1.UseVisualStyleBackColor = false;
+
             // 
             // btnCab2
             // 
@@ -729,6 +732,7 @@ namespace Project
             this.ClientSize = new System.Drawing.Size(1906, 975);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.dataClientsView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pSingle);
             this.Controls.Add(this.pDouble);
@@ -736,7 +740,6 @@ namespace Project
             this.Controls.Add(this.btnAddBooking);
             this.Controls.Add(this.btnCurentList);
             this.Controls.Add(this.dataGridBookings);
-            this.Controls.Add(this.dataClientsView);
             this.Controls.Add(this.lblCurent);
             this.Controls.Add(this.btnBookings);
             this.Controls.Add(this.btnCheckIn);
