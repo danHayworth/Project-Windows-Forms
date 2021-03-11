@@ -66,7 +66,6 @@ namespace Project
             addClients();
             addBookings();
             changeColours();
-            MessageBox.Show(inCabin.Count.ToString());
         }       
 
 
@@ -81,7 +80,8 @@ namespace Project
                     object val2 = row.Cells[1].Value;
                     if (val1 != null && val1.ToString() == c.Name.ToString() && val2 != null && val2.ToString() == c.Surname.ToString())
                     {
-                        alreadyIn = true;                      
+                        alreadyIn = true;
+                        MessageBox.Show("Guest already in cabin");
                     }
                 }
                 if (!alreadyIn)
@@ -103,6 +103,7 @@ namespace Project
                         val2 != null && val2.ToString() == b.Surname.ToString())
                     {
                         alreadyIn = true;
+                        MessageBox.Show("Guest already booked");
                     }
                 }
                 if (!alreadyIn)
@@ -195,6 +196,44 @@ namespace Project
                     btnCab10.BackColor = Color.Red;
                 }
 
+            }
+        }
+
+        public static string NameClient;
+        public static string Surname;
+        public static string CheckIn;
+        public static string CheckOut;
+        public static int PhoneNumber;
+        public static int CabinNumber;
+
+        private void getCabinDetails()
+        {
+            foreach(CheckingIn c in inCabin)
+            {
+                if(CabinNumber == c.CabinNumber)
+                {
+                    NameClient = c.Name;
+                    Surname = c.Surname;
+                    CheckIn = c.CheckIn;
+                    CheckOut = c.CheckOut;
+                    PhoneNumber = c.Phone;
+                }
+            }
+        }
+
+        private void btnCab1_Click(object sender, EventArgs e)
+        {
+            if(inCabin.Count > 0)
+            {
+                CabinNumber = 1;
+                getCabinDetails();
+                frmCabinsCheck f = new frmCabinsCheck();
+                f.Show();
+                this.Close();
+            }         
+            else
+            {
+                MessageBox.Show("This cabin is empty.");
             }
         }
     }

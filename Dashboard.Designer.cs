@@ -700,6 +700,7 @@ namespace Project
             this.btnCab1.TabIndex = 10;
             this.btnCab1.Text = "Cabin 1";
             this.btnCab1.UseVisualStyleBackColor = false;
+            this.btnCab1.Click += new System.EventHandler(this.btnCab1_Click);
             // 
             // btnCab2
             // 

@@ -29,6 +29,7 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCheckIn));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,8 +55,10 @@ namespace Project
             this.lblCabinNumber = new System.Windows.Forms.Label();
             this.txtCabinNumber = new System.Windows.Forms.ComboBox();
             this.txtCabinBook = new System.Windows.Forms.ComboBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.txtIdType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -148,7 +151,6 @@ namespace Project
             // dateInBook
             // 
             this.dateInBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateInBook.CausesValidation = false;
             this.dateInBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateInBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateInBook.Location = new System.Drawing.Point(300, 371);
@@ -158,11 +160,11 @@ namespace Project
             this.dateInBook.Size = new System.Drawing.Size(278, 25);
             this.dateInBook.TabIndex = 10;
             this.dateInBook.Value = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
+            this.dateInBook.Validating += new System.ComponentModel.CancelEventHandler(this.dateInBook_Validating);
             // 
             // dateOutBook
             // 
             this.dateOutBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOutBook.CausesValidation = false;
             this.dateOutBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOutBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOutBook.Location = new System.Drawing.Point(300, 417);
@@ -172,6 +174,7 @@ namespace Project
             this.dateOutBook.Size = new System.Drawing.Size(278, 25);
             this.dateOutBook.TabIndex = 11;
             this.dateOutBook.Value = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
+            this.dateOutBook.Validating += new System.ComponentModel.CancelEventHandler(this.dateOutBook_Validating);
             // 
             // btnBook
             // 
@@ -293,6 +296,7 @@ namespace Project
             // 
             // txtCabinNumber
             // 
+            this.txtCabinNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtCabinNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCabinNumber.FormattingEnabled = true;
@@ -300,8 +304,6 @@ namespace Project
             this.txtCabinNumber.Name = "txtCabinNumber";
             this.txtCabinNumber.Size = new System.Drawing.Size(278, 30);
             this.txtCabinNumber.TabIndex = 24;
-            this.txtCabinNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtCabinNumber_Validating);
-            this.txtCabinNumber.Validated += new System.EventHandler(this.btnBook_Click);
             // 
             // txtCabinBook
             // 
@@ -317,6 +319,10 @@ namespace Project
             this.txtCabinBook.Size = new System.Drawing.Size(278, 30);
             this.txtCabinBook.TabIndex = 25;
             this.txtCabinBook.Validating += new System.ComponentModel.CancelEventHandler(this.txtCabinBook_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmCheckIn
             // 
@@ -354,6 +360,7 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
             this.txtIdType.ResumeLayout(false);
             this.txtIdType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +392,6 @@ namespace Project
         private System.Windows.Forms.Label lblCabinNumber;
         private System.Windows.Forms.ComboBox txtCabinNumber;
         private System.Windows.Forms.ComboBox txtCabinBook;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
