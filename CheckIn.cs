@@ -17,19 +17,19 @@ namespace Project
         }
        
         public void btnBook_Click(object sender, EventArgs e)
-        {
+        {    
             
             CheckingIn guest = new CheckingIn(txtIDBook.Text, txtIdType.Text, txtNameBook.Text, txtSurnameBook.Text, Int32.Parse(txtPhoneBook.Text), dateInBook.Text, dateOutBook.Text, txtNotesBook.Text, txtCabinBook.SelectedItem.ToString(), Int32.Parse(txtCabinNumber.SelectedItem.ToString()));
             frmMain.inCabin.Add(guest);
             MessageBox.Show("Guest Added ");
+            Close();
             frmMain f = new frmMain();
             f.Show();
-            this.Close();
-           
         }
 
         private void imgClose_Click(object sender, EventArgs e)
         {
+       
             this.Close();
         }
 
@@ -80,14 +80,44 @@ namespace Project
 
         private void txtCabinBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if(txtCabinBook.SelectedIndex < 0)
+            
+            try
             {
-                MessageBox.Show("Please select the cabin type");
-                btnBook.Enabled = false;
-            }
-            else
+                if (txtCabinBook.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select the cabin type");
+                    btnBook.Enabled = false;
+                }
+                if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Suite")
+                {
+                    int[] suite = { 1, 2, 6, 7 };
+                    for (int i = 0; i < suite.Length; i++)
+                    {
+                        txtCabinNumber.Items.Add(suite[i]);
+                    }
+                    btnBook.Enabled = true;
+                }
+                if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Double")
+                {
+                    int[] suite = { 3, 4, 8, 9 };
+                    for (int i = 0; i < suite.Length; i++)
+                    {
+                        txtCabinNumber.Items.Add(suite[i]);
+                    }
+                    btnBook.Enabled = true;
+                }
+                if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Single")
+                {
+                    int[] suite = { 5, 10 };
+                    for (int i = 0; i < suite.Length; i++)
+                    {
+                        txtCabinNumber.Items.Add(suite[i]);
+                    }
+                    btnBook.Enabled = true;
+                }
+            }catch(Exception ex)
             {
-                btnBook.Enabled = true;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -98,10 +128,7 @@ namespace Project
                 MessageBox.Show("Please select the cabin number");
                 btnBook.Enabled = false;
             }
-            else
-            {
-                btnBook.Enabled = true;
-            }
+            
         }
     }
 }

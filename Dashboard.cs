@@ -9,7 +9,7 @@ namespace Project
     public partial class frmMain : Form
     {
         public static List<Cabins> cabs = new List<Cabins>();
-        public static ArrayList inCabin = new ArrayList();
+        public static List<CheckingIn> inCabin = new List<CheckingIn>();
         public static List<Bookings> booked = new List<Bookings>();
 
         public frmMain()
@@ -62,11 +62,11 @@ namespace Project
                 cabs.Add(cabin8);
                 cabs.Add(cabin9);
                 cabs.Add(cabin10);
-            }
-            updateCabin();        
+            }      
             addClients();
             addBookings();
             changeColours();
+            MessageBox.Show(inCabin.Count.ToString());
         }       
 
 
@@ -79,10 +79,9 @@ namespace Project
                 {
                     object val1 = row.Cells[0].Value;
                     object val2 = row.Cells[1].Value;
-                    if (val1 != null && val1.ToString() == c.Name.ToString() &&
-                        val2 != null && val2.ToString() == c.Surname.ToString())
+                    if (val1 != null && val1.ToString() == c.Name.ToString() && val2 != null && val2.ToString() == c.Surname.ToString())
                     {
-                        alreadyIn = true;
+                        alreadyIn = true;                      
                     }
                 }
                 if (!alreadyIn)
@@ -114,23 +113,20 @@ namespace Project
             }
         }
         
-        private void updateCabin()
-        {
-            CheckingIn client1 = new CheckingIn("P256365", "Passport", "Dan", "Hayworth", 021322, "09-03-2021", "11-03-2021", "No notes", "Suite", 1);
-            inCabin.Add(client1);  
-        }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmCheckIn frm = new frmCheckIn();
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Show();
-
+            
         }
 
         private void btnBookings_Click(object sender, EventArgs e)
         {
             dataGridBookings.Visible = true;
+            dataClientsView.Visible = false;
             lblCurent.Text = "Bookings List";
             dataGridBookings.Update();
             dataGridBookings.Refresh();
@@ -139,12 +135,15 @@ namespace Project
         private void btnCurentList_Click(object sender, EventArgs e)
         {
             dataGridBookings.Visible = false;
+            dataClientsView.Visible = true;
             lblCurent.Text = "Curent Guest List";
+            dataClientsView.Update();
             dataClientsView.Refresh();
         }
 
         private void btnAddBooking_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmAddBooking f = new frmAddBooking();
             f.FormBorderStyle = FormBorderStyle.None;
             f.Show();

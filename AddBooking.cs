@@ -31,17 +31,25 @@ namespace Project
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
-                frmMain.booked.Add(newBooking);
-                frmMain f = new frmMain();
-                f.Show();
-                this.Close();
+                try
+                {
+                    Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
+                    frmMain.booked.Add(newBooking);
+                    frmMain f = new frmMain();
+                    f.Show();
+                    this.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 
         private void txtNameBooking_Validating(object sender, CancelEventArgs e)
         {
-            if(txtNameBooking.Text == "")
+    
+            if (txtNameBooking.Text == "")
             {
                 MessageBox.Show("Name cannot be blank");
                 btnBooking.Enabled = false;
@@ -50,6 +58,7 @@ namespace Project
             {
                 btnBooking.Enabled = true;
             }
+         
         }
 
         private void txtSurnameBooking_Validating(object sender, CancelEventArgs e)

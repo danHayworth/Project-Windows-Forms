@@ -148,6 +148,7 @@ namespace Project
             // dateInBook
             // 
             this.dateInBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateInBook.CausesValidation = false;
             this.dateInBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateInBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateInBook.Location = new System.Drawing.Point(300, 371);
@@ -161,6 +162,7 @@ namespace Project
             // dateOutBook
             // 
             this.dateOutBook.CalendarFont = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOutBook.CausesValidation = false;
             this.dateOutBook.Font = new System.Drawing.Font("Trajan Pro", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateOutBook.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOutBook.Location = new System.Drawing.Point(300, 417);
@@ -196,6 +198,7 @@ namespace Project
             // 
             // txtNotesBook
             // 
+            this.txtNotesBook.CausesValidation = false;
             this.txtNotesBook.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNotesBook.Location = new System.Drawing.Point(300, 467);
             this.txtNotesBook.Multiline = true;
@@ -293,17 +296,6 @@ namespace Project
             this.txtCabinNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCabinNumber.FormattingEnabled = true;
-            this.txtCabinNumber.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
             this.txtCabinNumber.Location = new System.Drawing.Point(300, 326);
             this.txtCabinNumber.Name = "txtCabinNumber";
             this.txtCabinNumber.Size = new System.Drawing.Size(278, 30);

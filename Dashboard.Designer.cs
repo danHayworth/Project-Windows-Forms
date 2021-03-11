@@ -265,7 +265,6 @@ namespace Project
             this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataClientsView.GridColor = System.Drawing.Color.SaddleBrown;
             this.dataClientsView.Location = new System.Drawing.Point(0, 721);
-            this.dataClientsView.MultiSelect = false;
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -701,7 +700,6 @@ namespace Project
             this.btnCab1.TabIndex = 10;
             this.btnCab1.Text = "Cabin 1";
             this.btnCab1.UseVisualStyleBackColor = false;
-
             // 
             // btnCab2
             // 
