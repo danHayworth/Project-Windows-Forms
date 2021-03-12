@@ -51,7 +51,6 @@ namespace Project
             this.btnPrintInvoice = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.txtCabinNumber = new System.Windows.Forms.Label();
             this.lblCabinN = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@ namespace Project
             this.lblCabinType = new System.Windows.Forms.Label();
             this.txtNights = new System.Windows.Forms.Label();
             this.lblNights = new System.Windows.Forms.Label();
+            this.btnSavePdf = new System.Windows.Forms.Button();
             this.pFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.pHeader.SuspendLayout();
@@ -69,7 +69,7 @@ namespace Project
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(73, 135);
+            this.lblName.Location = new System.Drawing.Point(73, 220);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(85, 25);
             this.lblName.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace Project
             // 
             this.txtName.AutoSize = true;
             this.txtName.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(242, 135);
+            this.txtName.Location = new System.Drawing.Point(242, 220);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(0, 25);
             this.txtName.TabIndex = 1;
@@ -88,7 +88,7 @@ namespace Project
             // 
             this.txtCheckOut.AutoSize = true;
             this.txtCheckOut.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckOut.Location = new System.Drawing.Point(242, 297);
+            this.txtCheckOut.Location = new System.Drawing.Point(242, 382);
             this.txtCheckOut.Name = "txtCheckOut";
             this.txtCheckOut.Size = new System.Drawing.Size(0, 25);
             this.txtCheckOut.TabIndex = 5;
@@ -97,7 +97,7 @@ namespace Project
             // 
             this.lblCheckOut.AutoSize = true;
             this.lblCheckOut.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckOut.Location = new System.Drawing.Point(73, 297);
+            this.lblCheckOut.Location = new System.Drawing.Point(73, 382);
             this.lblCheckOut.Name = "lblCheckOut";
             this.lblCheckOut.Size = new System.Drawing.Size(149, 25);
             this.lblCheckOut.TabIndex = 4;
@@ -107,7 +107,7 @@ namespace Project
             // 
             this.txtCheckIn.AutoSize = true;
             this.txtCheckIn.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCheckIn.Location = new System.Drawing.Point(242, 259);
+            this.txtCheckIn.Location = new System.Drawing.Point(242, 344);
             this.txtCheckIn.Name = "txtCheckIn";
             this.txtCheckIn.Size = new System.Drawing.Size(0, 25);
             this.txtCheckIn.TabIndex = 7;
@@ -116,7 +116,7 @@ namespace Project
             // 
             this.lblCheckIn.AutoSize = true;
             this.lblCheckIn.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckIn.Location = new System.Drawing.Point(73, 259);
+            this.lblCheckIn.Location = new System.Drawing.Point(73, 344);
             this.lblCheckIn.Name = "lblCheckIn";
             this.lblCheckIn.Size = new System.Drawing.Size(128, 25);
             this.lblCheckIn.TabIndex = 6;
@@ -126,7 +126,7 @@ namespace Project
             // 
             this.txtPhone.AutoSize = true;
             this.txtPhone.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(242, 219);
+            this.txtPhone.Location = new System.Drawing.Point(242, 304);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(0, 25);
             this.txtPhone.TabIndex = 9;
@@ -135,7 +135,7 @@ namespace Project
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(73, 219);
+            this.lblPhone.Location = new System.Drawing.Point(73, 304);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(98, 25);
             this.lblPhone.TabIndex = 8;
@@ -145,7 +145,7 @@ namespace Project
             // 
             this.txtSurname.AutoSize = true;
             this.txtSurname.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSurname.Location = new System.Drawing.Point(242, 178);
+            this.txtSurname.Location = new System.Drawing.Point(242, 263);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(0, 25);
             this.txtSurname.TabIndex = 11;
@@ -154,7 +154,7 @@ namespace Project
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname.Location = new System.Drawing.Point(73, 178);
+            this.lblSurname.Location = new System.Drawing.Point(73, 263);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(124, 25);
             this.lblSurname.TabIndex = 10;
@@ -206,14 +206,14 @@ namespace Project
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1913, 107);
+            this.pHeader.Size = new System.Drawing.Size(1913, 62);
             this.pHeader.TabIndex = 13;
             // 
             // pInvoice
             // 
             this.pInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pInvoice.BackColor = System.Drawing.Color.White;
+            this.pInvoice.BackColor = System.Drawing.Color.SaddleBrown;
             this.pInvoice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pInvoice.Controls.Add(this.richTextBox);
             this.pInvoice.Location = new System.Drawing.Point(556, 111);
@@ -223,6 +223,7 @@ namespace Project
             // 
             // richTextBox
             // 
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.Location = new System.Drawing.Point(12, 9);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.Size = new System.Drawing.Size(1338, 842);
@@ -289,38 +290,38 @@ namespace Project
             // txtCabinNumber
             // 
             this.txtCabinNumber.AutoSize = true;
-            this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCabinNumber.Location = new System.Drawing.Point(242, 430);
+            this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCabinNumber.Location = new System.Drawing.Point(263, 122);
             this.txtCabinNumber.Name = "txtCabinNumber";
-            this.txtCabinNumber.Size = new System.Drawing.Size(0, 31);
+            this.txtCabinNumber.Size = new System.Drawing.Size(0, 48);
             this.txtCabinNumber.TabIndex = 19;
             // 
             // lblCabinN
             // 
             this.lblCabinN.AutoSize = true;
-            this.lblCabinN.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCabinN.Location = new System.Drawing.Point(73, 430);
+            this.lblCabinN.Font = new System.Drawing.Font("Trajan Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCabinN.Location = new System.Drawing.Point(71, 122);
             this.lblCabinN.Name = "lblCabinN";
-            this.lblCabinN.Size = new System.Drawing.Size(165, 31);
+            this.lblCabinN.Size = new System.Drawing.Size(145, 48);
             this.lblCabinN.TabIndex = 18;
-            this.lblCabinN.Text = "Cabin No: ";
+            this.lblCabinN.Text = "Cabin";
             // 
             // txtCabinType
             // 
             this.txtCabinType.AutoSize = true;
             this.txtCabinType.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCabinType.Location = new System.Drawing.Point(242, 388);
+            this.txtCabinType.Location = new System.Drawing.Point(242, 473);
             this.txtCabinType.Name = "txtCabinType";
-            this.txtCabinType.Size = new System.Drawing.Size(0, 31);
+            this.txtCabinType.Size = new System.Drawing.Size(0, 25);
             this.txtCabinType.TabIndex = 21;
             // 
             // lblCabinType
             // 
             this.lblCabinType.AutoSize = true;
             this.lblCabinType.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCabinType.Location = new System.Drawing.Point(73, 388);
+            this.lblCabinType.Location = new System.Drawing.Point(73, 473);
             this.lblCabinType.Name = "lblCabinType";
-            this.lblCabinType.Size = new System.Drawing.Size(181, 31);
+            this.lblCabinType.Size = new System.Drawing.Size(145, 25);
             this.lblCabinType.TabIndex = 20;
             this.lblCabinType.Text = "Cabin type: ";
             // 
@@ -328,26 +329,40 @@ namespace Project
             // 
             this.txtNights.AutoSize = true;
             this.txtNights.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNights.Location = new System.Drawing.Point(242, 342);
+            this.txtNights.Location = new System.Drawing.Point(242, 427);
             this.txtNights.Name = "txtNights";
-            this.txtNights.Size = new System.Drawing.Size(0, 31);
+            this.txtNights.Size = new System.Drawing.Size(0, 25);
             this.txtNights.TabIndex = 23;
             // 
             // lblNights
             // 
             this.lblNights.AutoSize = true;
             this.lblNights.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNights.Location = new System.Drawing.Point(73, 342);
+            this.lblNights.Location = new System.Drawing.Point(73, 427);
             this.lblNights.Name = "lblNights";
-            this.lblNights.Size = new System.Drawing.Size(134, 31);
+            this.lblNights.Size = new System.Drawing.Size(107, 25);
             this.lblNights.TabIndex = 22;
             this.lblNights.Text = "Nights: ";
+            // 
+            // btnSavePdf
+            // 
+            this.btnSavePdf.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnSavePdf.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePdf.ForeColor = System.Drawing.Color.White;
+            this.btnSavePdf.Location = new System.Drawing.Point(78, 917);
+            this.btnSavePdf.Name = "btnSavePdf";
+            this.btnSavePdf.Size = new System.Drawing.Size(243, 42);
+            this.btnSavePdf.TabIndex = 24;
+            this.btnSavePdf.Text = "Save as PDF";
+            this.btnSavePdf.UseVisualStyleBackColor = false;
+            this.btnSavePdf.Click += new System.EventHandler(this.btnSavePdf_Click);
             // 
             // frmCabinsCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1913, 1022);
+            this.Controls.Add(this.btnSavePdf);
             this.Controls.Add(this.txtNights);
             this.Controls.Add(this.lblNights);
             this.Controls.Add(this.txtCabinType);
@@ -408,7 +423,6 @@ namespace Project
         private System.Windows.Forms.Button btnPrintInvoice;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.Label txtCabinNumber;
@@ -417,5 +431,6 @@ namespace Project
         private System.Windows.Forms.Label lblCabinType;
         private System.Windows.Forms.Label txtNights;
         private System.Windows.Forms.Label lblNights;
+        private System.Windows.Forms.Button btnSavePdf;
     }
 }

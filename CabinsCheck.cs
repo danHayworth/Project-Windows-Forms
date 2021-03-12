@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
 using System.Windows.Forms;
+
 
 
 namespace Project
@@ -57,17 +53,15 @@ namespace Project
 
         private void btnShowInv_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames =true, Multiselect =false, Filter = "Word Document|*.docx|Word 97-2003|*.doc" })
+            using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames =true, Multiselect =false, Filter = "Word Document|*.docx|Word 97-2003|*.doc|Word Document|*.rtf" })
             {
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
                     object readOnly = false;
-                    object visible = true;
-                    object save = false;
+                    object visible = true;    
                     object filename = ofd.FileName;
-                    object newTemplate = false;
-                    object docType = 0;
                     object missing = Type.Missing;
+                    object saveChanges = 0;
                     Microsoft.Office.Interop.Word._Document document;
                     Microsoft.Office.Interop.Word._Application application = new Microsoft.Office.Interop.Word.Application() { Visible = false };
                     document = application.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing);
@@ -81,15 +75,12 @@ namespace Project
                     this.FindAndReplace(application, "<total>", getTotal());
                     this.FindAndReplace(application, "<sub>", getTotal());
                     this.FindAndReplace(application, "<gst>", getGst());
-                    this.FindAndReplace(application, "<due>", (Convert.ToInt32(total)+Convert.ToInt32(gst)).ToString());
-                    //document.Save();
+                    this.FindAndReplace(application, "<due>", (Convert.ToInt32(total)+Convert.ToInt32(gst)).ToString());                
                     document.ActiveWindow.Selection.WholeStory();
                     document.ActiveWindow.Selection.Copy();               
                     IDataObject dataObject = Clipboard.GetDataObject();
                     richTextBox.Rtf = dataObject.GetData(DataFormats.Rtf).ToString();
-                    application.Quit(ref missing, ref missing, ref missing);
-                    
-                    
+                    application.Quit(ref saveChanges, ref missing, ref missing);                  
                 }
             }        
         }
@@ -153,16 +144,24 @@ namespace Project
                 ref matchAlefHamza, ref matchControl);
         }
 
- 
+        Bitmap bitmap;
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-         
+            e.Graphics.DrawImage(bitmap, 0, 0);
         }
 
         private void btnPrintInvoice_Click(object sender, EventArgs e)
         {
-            
+            bitmap = new Bitmap(this.richTextBox.Width, this.richTextBox.Height);
+            richTextBox.DrawToBitmap(bitmap, new Rectangle(100, 0, this.richTextBox.Width, this.richTextBox.Height));
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.PrintPreviewControl.Zoom = 1.2;
+            printPreviewDialog.ShowDialog();
         }
 
+        private void btnSavePdf_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -137,7 +137,7 @@ namespace Project
         {
             dataGridBookings.Visible = false;
             dataClientsView.Visible = true;
-            lblCurent.Text = "Curent Guest List";
+            lblCurent.Text = "Current Guest List";
             dataClientsView.Update();
             dataClientsView.Refresh();
         }

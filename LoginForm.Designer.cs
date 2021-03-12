@@ -113,9 +113,9 @@ namespace Project
             this.lblSignIn.AutoSize = true;
             this.lblSignIn.Location = new System.Drawing.Point(129, 158);
             this.lblSignIn.Name = "lblSignIn";
-            this.lblSignIn.Size = new System.Drawing.Size(285, 34);
+            this.lblSignIn.Size = new System.Drawing.Size(363, 43);
             this.lblSignIn.TabIndex = 7;
-            this.lblSignIn.Text = "please sing in to access dashboard";
+            this.lblSignIn.Text = "Please sign-in to access dashboard";
             // 
             // frmLogin
             // 
