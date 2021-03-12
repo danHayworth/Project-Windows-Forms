@@ -29,6 +29,7 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -38,7 +39,9 @@ namespace Project
             this.btnLogin = new System.Windows.Forms.Button();
             this.imgClose = new System.Windows.Forms.PictureBox();
             this.lblSignIn = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -75,6 +78,7 @@ namespace Project
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(188, 31);
             this.txtUsername.TabIndex = 3;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtPassword
             // 
@@ -83,6 +87,7 @@ namespace Project
             this.txtPassword.Size = new System.Drawing.Size(188, 31);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // btnLogin
             // 
@@ -113,9 +118,13 @@ namespace Project
             this.lblSignIn.AutoSize = true;
             this.lblSignIn.Location = new System.Drawing.Point(129, 158);
             this.lblSignIn.Name = "lblSignIn";
-            this.lblSignIn.Size = new System.Drawing.Size(363, 43);
+            this.lblSignIn.Size = new System.Drawing.Size(290, 34);
             this.lblSignIn.TabIndex = 7;
             this.lblSignIn.Text = "Please sign-in to access dashboard";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -140,6 +149,7 @@ namespace Project
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +165,6 @@ namespace Project
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox imgClose;
         private System.Windows.Forms.Label lblSignIn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

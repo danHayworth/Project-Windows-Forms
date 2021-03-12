@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace Project
         public static string loggedUser = "";
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            validateForm();
             foreach(Users obj in user)
             {
                 if (txtUsername.Text == obj.Username && txtPassword.Text == obj.Password)
@@ -31,7 +32,7 @@ namespace Project
             }
                 
         }
-        internal ArrayList user = new ArrayList();
+        internal List<Users> user = new List<Users>();
         private void imgClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -39,11 +40,48 @@ namespace Project
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-          
-            Users admin = new Users(1, "danha", "danha", "dan@email.com");
             Users staff = new Users(2, "user", "user", "user@email.com");
-            user.Add(admin);
             user.Add(staff);
+        }
+
+        private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            validateUsername();
+        }
+        private bool validateUsername()
+        {
+            bool isreal = true;
+            if(txtUsername.Text != user[0].Username)
+            {
+                errorProvider.SetError(txtUsername, "Wrong");
+                isreal = false;
+            }
+            return isreal;
+        }
+        private void txtPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            validatePass();
+        }
+        private bool validatePass()
+        {
+            bool isreal = true;
+            if (txtPassword.Text != user[0].Password)
+            {
+                errorProvider.SetError(txtPassword, "Wrong");
+                isreal = true;
+            }
+            return isreal;
+        }
+        private void validateForm()
+        {
+            if(validatePass() && validateUsername())
+            {
+                MessageBox.Show("Welcome " + user[0].Username);
+            }
+            else
+            {
+                MessageBox.Show("Wrong credentials");
+            }
         }
     }
 }
