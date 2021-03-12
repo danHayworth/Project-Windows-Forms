@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
+
 
 namespace Project
 {
@@ -42,56 +41,68 @@ namespace Project
 
         private void btnShowInv_Click(object sender, EventArgs e)
         {
-            string fileName = "";
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Title = "Excel file";
-            fileDialog.InitialDirectory = @"C:\";
-            fileDialog.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
-            fileDialog.FilterIndex = 2;
-            fileDialog.RestoreDirectory = true;
-            if(fileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames =true, Multiselect =false, Filter = "Word Document|*.docx|Word 97-2003|*.doc" })
             {
-                fileName = fileDialog.FileName;
-            }
-            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(fileName);
-            Microsoft.Office.Interop.Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-            Microsoft.Office.Interop.Excel.Range xlRange = xlWorksheet.UsedRange;
-
-            int rowCount = xlRange.Rows.Count;
-            int colCount = xlRange.Columns.Count;
-
-            // dt.Column = colCount;  
-            dataGridView.ColumnCount = colCount;
-            dataGridView.RowCount = rowCount;
-
-            for (int i = 1; i <= rowCount; i++)
-            {
-                for (int j = 1; j <= colCount; j++)
-                { 
-                    if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
-                    {
-                        dataGridView.Rows[i - 1].Cells[j - 1].Value = xlRange.Cells[i, j].Value2.ToString();
-                    }
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    object readOnly = false;
+                    object visible = true;
+                    object save = false;
+                    object filename = ofd.FileName;
+                    object newTemplate = false;
+                    object docType = 0;
+                    object missing = Type.Missing;
+                    Microsoft.Office.Interop.Word._Document document;
+                    Microsoft.Office.Interop.Word._Application application = new Microsoft.Office.Interop.Word.Application() { Visible = false };
+                    document = application.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing);
+                    document.Activate();
+                    this.FindAndReplace(application, "<Name>", txtName.Text);
+                    this.FindAndReplace(application, "<Surname>", txtSurname.Text);
+                    this.FindAndReplace(application, "<Phone>", txtPhone.Text);
+                    //document.Save();
+                    document.ActiveWindow.Selection.WholeStory();
+                    document.ActiveWindow.Selection.Copy();               
+                    IDataObject dataObject = Clipboard.GetDataObject();
+                    richTextBox.Rtf = dataObject.GetData(DataFormats.Rtf).ToString();
+                    application.Quit(ref missing, ref missing, ref missing);
+                    
+                    
                 }
-            }
+            }        
+        }
+        private void FindAndReplace(Microsoft.Office.Interop.Word._Application application,
+            object findText, object replaceText)
+        {
+            object matchCase = true;
+            object matchWholeWord = true;
+            object matchWildCards = false;
+            object matchSoundsLike = false;
+            object matchAllWordForms = false;
+            object forward = true;
+            object format = false;
+            object matchKashida = false;
+            object matchDiacritics = false;
+            object matchAlefHamza = false;
+            object matchControl = false;
+            object replace = 2;
+            object wrap = 1;
+            application.Selection.Find.Execute(ref findText, ref matchCase,
+                ref matchWholeWord, ref matchWildCards, ref matchSoundsLike,
+                ref matchAllWordForms, ref forward, ref wrap, ref format,
+                ref replaceText, ref replace, ref matchKashida,
+                        ref matchDiacritics,
+                ref matchAlefHamza, ref matchControl);
+        }
 
-            //cleanup  
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+ 
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+         
+        }
 
-            //release com objects to fully kill excel process from running in the background  
-            Marshal.ReleaseComObject(xlRange);
-            Marshal.ReleaseComObject(xlWorksheet);
-
-            //close and release  
-            xlWorkbook.Close();
-            Marshal.ReleaseComObject(xlWorkbook);
-
-            //quit and release  
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlApp);
-
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

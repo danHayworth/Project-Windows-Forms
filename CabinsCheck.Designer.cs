@@ -45,18 +45,18 @@ namespace Project
             this.imgClose = new System.Windows.Forms.PictureBox();
             this.pHeader = new System.Windows.Forms.Panel();
             this.pInvoice = new System.Windows.Forms.Panel();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.btnShowInv = new System.Windows.Forms.Button();
             this.btnEmailInvoice = new System.Windows.Forms.Button();
             this.btnPrintInvoice = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.pFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.pHeader.SuspendLayout();
             this.pInvoice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -75,7 +75,7 @@ namespace Project
             this.txtName.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(242, 135);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(0, 31);
+            this.txtName.Size = new System.Drawing.Size(0, 25);
             this.txtName.TabIndex = 1;
             // 
             // txtCheckOut
@@ -84,7 +84,7 @@ namespace Project
             this.txtCheckOut.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheckOut.Location = new System.Drawing.Point(242, 297);
             this.txtCheckOut.Name = "txtCheckOut";
-            this.txtCheckOut.Size = new System.Drawing.Size(0, 31);
+            this.txtCheckOut.Size = new System.Drawing.Size(0, 25);
             this.txtCheckOut.TabIndex = 5;
             // 
             // lblCheckOut
@@ -93,7 +93,7 @@ namespace Project
             this.lblCheckOut.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckOut.Location = new System.Drawing.Point(73, 297);
             this.lblCheckOut.Name = "lblCheckOut";
-            this.lblCheckOut.Size = new System.Drawing.Size(186, 31);
+            this.lblCheckOut.Size = new System.Drawing.Size(149, 25);
             this.lblCheckOut.TabIndex = 4;
             this.lblCheckOut.Text = "Check Out: ";
             // 
@@ -103,7 +103,7 @@ namespace Project
             this.txtCheckIn.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheckIn.Location = new System.Drawing.Point(242, 259);
             this.txtCheckIn.Name = "txtCheckIn";
-            this.txtCheckIn.Size = new System.Drawing.Size(0, 31);
+            this.txtCheckIn.Size = new System.Drawing.Size(0, 25);
             this.txtCheckIn.TabIndex = 7;
             // 
             // lblCheckIn
@@ -112,7 +112,7 @@ namespace Project
             this.lblCheckIn.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckIn.Location = new System.Drawing.Point(73, 259);
             this.lblCheckIn.Name = "lblCheckIn";
-            this.lblCheckIn.Size = new System.Drawing.Size(160, 31);
+            this.lblCheckIn.Size = new System.Drawing.Size(128, 25);
             this.lblCheckIn.TabIndex = 6;
             this.lblCheckIn.Text = "Check In: ";
             // 
@@ -122,7 +122,7 @@ namespace Project
             this.txtPhone.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(242, 219);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(0, 31);
+            this.txtPhone.Size = new System.Drawing.Size(0, 25);
             this.txtPhone.TabIndex = 9;
             // 
             // lblPhone
@@ -131,7 +131,7 @@ namespace Project
             this.lblPhone.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.Location = new System.Drawing.Point(73, 219);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(123, 31);
+            this.lblPhone.Size = new System.Drawing.Size(98, 25);
             this.lblPhone.TabIndex = 8;
             this.lblPhone.Text = "Phone: ";
             // 
@@ -141,7 +141,7 @@ namespace Project
             this.txtSurname.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSurname.Location = new System.Drawing.Point(242, 178);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(0, 31);
+            this.txtSurname.Size = new System.Drawing.Size(0, 25);
             this.txtSurname.TabIndex = 11;
             // 
             // lblSurname
@@ -150,7 +150,7 @@ namespace Project
             this.lblSurname.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurname.Location = new System.Drawing.Point(73, 178);
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(155, 31);
+            this.lblSurname.Size = new System.Drawing.Size(124, 25);
             this.lblSurname.TabIndex = 10;
             this.lblSurname.Text = "Surname: ";
             // 
@@ -209,11 +209,19 @@ namespace Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pInvoice.BackColor = System.Drawing.Color.White;
             this.pInvoice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pInvoice.Controls.Add(this.dataGridView);
+            this.pInvoice.Controls.Add(this.richTextBox);
             this.pInvoice.Location = new System.Drawing.Point(556, 111);
             this.pInvoice.Name = "pInvoice";
             this.pInvoice.Size = new System.Drawing.Size(1353, 854);
             this.pInvoice.TabIndex = 14;
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.Location = new System.Drawing.Point(12, 9);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(1338, 842);
+            this.richTextBox.TabIndex = 0;
+            this.richTextBox.Text = "";
             // 
             // btnShowInv
             // 
@@ -222,9 +230,9 @@ namespace Project
             this.btnShowInv.ForeColor = System.Drawing.Color.White;
             this.btnShowInv.Location = new System.Drawing.Point(78, 394);
             this.btnShowInv.Name = "btnShowInv";
-            this.btnShowInv.Size = new System.Drawing.Size(224, 42);
+            this.btnShowInv.Size = new System.Drawing.Size(243, 42);
             this.btnShowInv.TabIndex = 15;
-            this.btnShowInv.Text = "Show Invoice";
+            this.btnShowInv.Text = "Generate Invoice";
             this.btnShowInv.UseVisualStyleBackColor = false;
             this.btnShowInv.Click += new System.EventHandler(this.btnShowInv_Click);
             // 
@@ -235,7 +243,7 @@ namespace Project
             this.btnEmailInvoice.ForeColor = System.Drawing.Color.White;
             this.btnEmailInvoice.Location = new System.Drawing.Point(78, 472);
             this.btnEmailInvoice.Name = "btnEmailInvoice";
-            this.btnEmailInvoice.Size = new System.Drawing.Size(224, 42);
+            this.btnEmailInvoice.Size = new System.Drawing.Size(243, 42);
             this.btnEmailInvoice.TabIndex = 16;
             this.btnEmailInvoice.Text = "Email Invoice";
             this.btnEmailInvoice.UseVisualStyleBackColor = false;
@@ -247,28 +255,30 @@ namespace Project
             this.btnPrintInvoice.ForeColor = System.Drawing.Color.White;
             this.btnPrintInvoice.Location = new System.Drawing.Point(78, 550);
             this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(224, 42);
+            this.btnPrintInvoice.Size = new System.Drawing.Size(243, 42);
             this.btnPrintInvoice.TabIndex = 17;
             this.btnPrintInvoice.Text = "Print Invoice";
             this.btnPrintInvoice.UseVisualStyleBackColor = false;
+            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // dataGridView
+            // printDocument
             // 
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(10, 9);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(1340, 842);
-            this.dataGridView.TabIndex = 0;
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
             // 
             // frmCabinsCheck
             // 
@@ -302,7 +312,6 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
             this.pHeader.ResumeLayout(false);
             this.pInvoice.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,6 +340,7 @@ namespace Project
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.RichTextBox richTextBox;
     }
 }
