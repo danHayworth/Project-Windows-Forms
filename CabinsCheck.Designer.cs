@@ -59,6 +59,7 @@ namespace Project
             this.txtNights = new System.Windows.Forms.Label();
             this.lblNights = new System.Windows.Forms.Label();
             this.btnSavePdf = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.pFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.pHeader.SuspendLayout();
@@ -293,7 +294,7 @@ namespace Project
             this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCabinNumber.Location = new System.Drawing.Point(263, 122);
             this.txtCabinNumber.Name = "txtCabinNumber";
-            this.txtCabinNumber.Size = new System.Drawing.Size(0, 48);
+            this.txtCabinNumber.Size = new System.Drawing.Size(0, 38);
             this.txtCabinNumber.TabIndex = 19;
             // 
             // lblCabinN
@@ -302,7 +303,7 @@ namespace Project
             this.lblCabinN.Font = new System.Drawing.Font("Trajan Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCabinN.Location = new System.Drawing.Point(71, 122);
             this.lblCabinN.Name = "lblCabinN";
-            this.lblCabinN.Size = new System.Drawing.Size(145, 48);
+            this.lblCabinN.Size = new System.Drawing.Size(116, 38);
             this.lblCabinN.TabIndex = 18;
             this.lblCabinN.Text = "Cabin";
             // 
@@ -353,7 +354,7 @@ namespace Project
             this.btnSavePdf.Name = "btnSavePdf";
             this.btnSavePdf.Size = new System.Drawing.Size(243, 42);
             this.btnSavePdf.TabIndex = 24;
-            this.btnSavePdf.Text = "Save as PDF";
+            this.btnSavePdf.Text = "Save as ";
             this.btnSavePdf.UseVisualStyleBackColor = false;
             this.btnSavePdf.Click += new System.EventHandler(this.btnSavePdf_Click);
             // 
@@ -432,5 +433,6 @@ namespace Project
         private System.Windows.Forms.Label txtNights;
         private System.Windows.Forms.Label lblNights;
         private System.Windows.Forms.Button btnSavePdf;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

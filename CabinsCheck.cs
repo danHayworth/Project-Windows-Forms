@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -161,7 +162,40 @@ namespace Project
 
         private void btnSavePdf_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
+            dialog.Title = "InvoiceGuest";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                ImageCodecInfo myImageCodecInfo;
+                Encoder myEncoder;
+                EncoderParameter myEncoderParameter;
+                EncoderParameters myEncoderParameters;
+                // Get an ImageCodecInfo object that represents the JPEG codec.
+                myImageCodecInfo = GetEncoderInfo("image/jpeg");
+                // for the Quality parameter category.
+                myEncoder = Encoder.Quality;
+                // EncoderParameter object in the array.
+                myEncoderParameters = new EncoderParameters(1);
+                bitmap = new Bitmap(this.richTextBox.Width, this.richTextBox.Height);
+                richTextBox.DrawToBitmap(bitmap, new Rectangle(0, 0, this.richTextBox.Width, this.richTextBox.Height));
+                // Save the bitmap as a JPEG file with quality level 75.
+                myEncoderParameter = new EncoderParameter(myEncoder, 75L);
+                myEncoderParameters.Param[0] = myEncoderParameter;
+                bitmap.Save(dialog.FileName, myImageCodecInfo, myEncoderParameters);
+            }
+        }
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
         }
     }
 }
