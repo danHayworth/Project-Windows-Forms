@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -196,6 +197,12 @@ namespace Project
                     return encoders[j];
             }
             return null;
+        }
+
+        private void btnEmailInvoice_Click(object sender, EventArgs e)
+        {
+            string email = Interaction.InputBox("Enter your email address", "Add email", " ");
+            MessageBox.Show("An email has been sent to " + email, "Confirmation");
         }
     }
 }

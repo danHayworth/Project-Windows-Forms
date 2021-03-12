@@ -217,17 +217,17 @@ namespace Project
             this.pInvoice.BackColor = System.Drawing.Color.SaddleBrown;
             this.pInvoice.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pInvoice.Controls.Add(this.richTextBox);
-            this.pInvoice.Location = new System.Drawing.Point(556, 111);
+            this.pInvoice.Location = new System.Drawing.Point(680, 68);
             this.pInvoice.Name = "pInvoice";
-            this.pInvoice.Size = new System.Drawing.Size(1353, 854);
+            this.pInvoice.Size = new System.Drawing.Size(1229, 897);
             this.pInvoice.TabIndex = 14;
             // 
             // richTextBox
             // 
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.Location = new System.Drawing.Point(12, 9);
+            this.richTextBox.Location = new System.Drawing.Point(3, 3);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(1338, 842);
+            this.richTextBox.Size = new System.Drawing.Size(1216, 886);
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "";
             // 
@@ -255,6 +255,7 @@ namespace Project
             this.btnEmailInvoice.TabIndex = 16;
             this.btnEmailInvoice.Text = "Email Invoice";
             this.btnEmailInvoice.UseVisualStyleBackColor = false;
+            this.btnEmailInvoice.Click += new System.EventHandler(this.btnEmailInvoice_Click);
             // 
             // btnPrintInvoice
             // 
