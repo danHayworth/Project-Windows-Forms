@@ -53,6 +53,12 @@ namespace Project
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.txtCabinNumber = new System.Windows.Forms.Label();
+            this.lblCabinN = new System.Windows.Forms.Label();
+            this.txtCabinType = new System.Windows.Forms.Label();
+            this.lblCabinType = new System.Windows.Forms.Label();
+            this.txtNights = new System.Windows.Forms.Label();
+            this.lblNights = new System.Windows.Forms.Label();
             this.pFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.pHeader.SuspendLayout();
@@ -228,7 +234,7 @@ namespace Project
             this.btnShowInv.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnShowInv.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowInv.ForeColor = System.Drawing.Color.White;
-            this.btnShowInv.Location = new System.Drawing.Point(78, 394);
+            this.btnShowInv.Location = new System.Drawing.Point(78, 683);
             this.btnShowInv.Name = "btnShowInv";
             this.btnShowInv.Size = new System.Drawing.Size(243, 42);
             this.btnShowInv.TabIndex = 15;
@@ -241,7 +247,7 @@ namespace Project
             this.btnEmailInvoice.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnEmailInvoice.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmailInvoice.ForeColor = System.Drawing.Color.White;
-            this.btnEmailInvoice.Location = new System.Drawing.Point(78, 472);
+            this.btnEmailInvoice.Location = new System.Drawing.Point(78, 761);
             this.btnEmailInvoice.Name = "btnEmailInvoice";
             this.btnEmailInvoice.Size = new System.Drawing.Size(243, 42);
             this.btnEmailInvoice.TabIndex = 16;
@@ -253,7 +259,7 @@ namespace Project
             this.btnPrintInvoice.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnPrintInvoice.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintInvoice.ForeColor = System.Drawing.Color.White;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(78, 550);
+            this.btnPrintInvoice.Location = new System.Drawing.Point(78, 839);
             this.btnPrintInvoice.Name = "btnPrintInvoice";
             this.btnPrintInvoice.Size = new System.Drawing.Size(243, 42);
             this.btnPrintInvoice.TabIndex = 17;
@@ -280,11 +286,74 @@ namespace Project
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
+            // txtCabinNumber
+            // 
+            this.txtCabinNumber.AutoSize = true;
+            this.txtCabinNumber.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCabinNumber.Location = new System.Drawing.Point(242, 430);
+            this.txtCabinNumber.Name = "txtCabinNumber";
+            this.txtCabinNumber.Size = new System.Drawing.Size(0, 31);
+            this.txtCabinNumber.TabIndex = 19;
+            // 
+            // lblCabinN
+            // 
+            this.lblCabinN.AutoSize = true;
+            this.lblCabinN.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCabinN.Location = new System.Drawing.Point(73, 430);
+            this.lblCabinN.Name = "lblCabinN";
+            this.lblCabinN.Size = new System.Drawing.Size(165, 31);
+            this.lblCabinN.TabIndex = 18;
+            this.lblCabinN.Text = "Cabin No: ";
+            // 
+            // txtCabinType
+            // 
+            this.txtCabinType.AutoSize = true;
+            this.txtCabinType.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCabinType.Location = new System.Drawing.Point(242, 388);
+            this.txtCabinType.Name = "txtCabinType";
+            this.txtCabinType.Size = new System.Drawing.Size(0, 31);
+            this.txtCabinType.TabIndex = 21;
+            // 
+            // lblCabinType
+            // 
+            this.lblCabinType.AutoSize = true;
+            this.lblCabinType.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCabinType.Location = new System.Drawing.Point(73, 388);
+            this.lblCabinType.Name = "lblCabinType";
+            this.lblCabinType.Size = new System.Drawing.Size(181, 31);
+            this.lblCabinType.TabIndex = 20;
+            this.lblCabinType.Text = "Cabin type: ";
+            // 
+            // txtNights
+            // 
+            this.txtNights.AutoSize = true;
+            this.txtNights.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNights.Location = new System.Drawing.Point(242, 342);
+            this.txtNights.Name = "txtNights";
+            this.txtNights.Size = new System.Drawing.Size(0, 31);
+            this.txtNights.TabIndex = 23;
+            // 
+            // lblNights
+            // 
+            this.lblNights.AutoSize = true;
+            this.lblNights.Font = new System.Drawing.Font("Trajan Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNights.Location = new System.Drawing.Point(73, 342);
+            this.lblNights.Name = "lblNights";
+            this.lblNights.Size = new System.Drawing.Size(134, 31);
+            this.lblNights.TabIndex = 22;
+            this.lblNights.Text = "Nights: ";
+            // 
             // frmCabinsCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1913, 1022);
+            this.Controls.Add(this.txtNights);
+            this.Controls.Add(this.lblNights);
+            this.Controls.Add(this.txtCabinType);
+            this.Controls.Add(this.lblCabinType);
+            this.Controls.Add(this.txtCabinNumber);
+            this.Controls.Add(this.lblCabinN);
             this.Controls.Add(this.btnPrintInvoice);
             this.Controls.Add(this.btnEmailInvoice);
             this.Controls.Add(this.btnShowInv);
@@ -342,5 +411,11 @@ namespace Project
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.Label txtCabinNumber;
+        private System.Windows.Forms.Label lblCabinN;
+        private System.Windows.Forms.Label txtCabinType;
+        private System.Windows.Forms.Label lblCabinType;
+        private System.Windows.Forms.Label txtNights;
+        private System.Windows.Forms.Label lblNights;
     }
 }

@@ -205,6 +205,7 @@ namespace Project
         public static string CheckOut;
         public static int PhoneNumber;
         public static int CabinNumber;
+        public static string CabinType;
 
         private void getCabinDetails()
         {
@@ -217,24 +218,106 @@ namespace Project
                     CheckIn = c.CheckIn;
                     CheckOut = c.CheckOut;
                     PhoneNumber = c.Phone;
+                    CabinType = c.CabinType;
                 }
             }
         }
 
         private void btnCab1_Click(object sender, EventArgs e)
         {
-            if(inCabin.Count > 0)
+            
+            CabinNumber = 1;
+            generateCabin();
+        }
+
+        private void btnCab2_Click(object sender, EventArgs e)
+        {
+            CabinNumber = 2;
+            generateCabin();
+        }
+
+        private void btnCab6_Click(object sender, EventArgs e)
+        {
+           
+            CabinNumber = 6;
+            generateCabin();
+        }
+
+        private void btnCab7_Click(object sender, EventArgs e)
+        {
+          
+            CabinNumber = 7;
+            generateCabin();
+            
+        }
+
+        private void btnCab3_Click(object sender, EventArgs e)
+        {
+          
+            CabinNumber = 3;
+            generateCabin();
+            
+        }
+
+        private void btnCab4_Click(object sender, EventArgs e)
+        {
+   
+            CabinNumber = 4;
+            generateCabin();
+           
+        }
+
+        private void btnCab8_Click(object sender, EventArgs e)
+        {
+        
+            CabinNumber = 8;
+            generateCabin();
+             
+        }
+
+        private void btnCab9_Click(object sender, EventArgs e)
+        {
+           
+            CabinNumber = 9;
+            generateCabin();
+              
+        }
+
+        private void btnCab5_Click(object sender, EventArgs e)
+        {
+           
+            CabinNumber = 5;
+            generateCabin();
+               
+        }
+
+        private void btnCab10_Click(object sender, EventArgs e)
+        {          
+            CabinNumber = 10;
+            generateCabin();     
+           
+        }
+
+       
+        private void generateCabin()
+        {
+            bool empty = true;
+            foreach(CheckingIn c in inCabin)
             {
-                CabinNumber = 1;
-                getCabinDetails();
-                frmCabinsCheck f = new frmCabinsCheck();
-                f.Show();
-                this.Close();
-            }         
-            else
-            {
-                MessageBox.Show("This cabin is empty.");
+                if(CabinNumber == c.CabinNumber)
+                {
+                    empty = false;
+                    getCabinDetails();
+                    frmCabinsCheck f = new frmCabinsCheck();
+                    f.Show();
+                    this.Close();
+                }
             }
+            if (empty)
+            {
+                MessageBox.Show("This cabin is empty!");
+            }
+
         }
     }
 }

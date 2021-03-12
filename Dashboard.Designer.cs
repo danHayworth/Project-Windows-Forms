@@ -31,11 +31,11 @@ namespace Project
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pFooter = new System.Windows.Forms.Panel();
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.pHeader = new System.Windows.Forms.Panel();
@@ -237,14 +237,14 @@ namespace Project
             this.dataClientsView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataClientsView.BackgroundColor = System.Drawing.Color.White;
             this.dataClientsView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataClientsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataClientsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dataClientsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataClientsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clientName,
@@ -255,26 +255,26 @@ namespace Project
             this.cleintCabinType,
             this.clientCabinNumber,
             this.clientNotes});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataClientsView.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataClientsView.GridColor = System.Drawing.Color.SaddleBrown;
             this.dataClientsView.Location = new System.Drawing.Point(0, 721);
             this.dataClientsView.Name = "dataClientsView";
             this.dataClientsView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Olive;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataClientsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.Olive;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataClientsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dataClientsView.RowHeadersWidth = 51;
             this.dataClientsView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Olive;
             this.dataClientsView.RowTemplate.Height = 24;
@@ -386,14 +386,14 @@ namespace Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBookings.BackgroundColor = System.Drawing.Color.Ivory;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Olive;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Olive;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -406,14 +406,14 @@ namespace Project
             this.dataGridBookings.Location = new System.Drawing.Point(0, 723);
             this.dataGridBookings.Name = "dataGridBookings";
             this.dataGridBookings.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridBookings.RowHeadersWidth = 51;
             this.dataGridBookings.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Olive;
             this.dataGridBookings.RowTemplate.Height = 24;
@@ -572,6 +572,7 @@ namespace Project
             this.btnCab10.TabIndex = 16;
             this.btnCab10.Text = "Cabin 10";
             this.btnCab10.UseVisualStyleBackColor = false;
+            this.btnCab10.Click += new System.EventHandler(this.btnCab10_Click);
             // 
             // btnCab5
             // 
@@ -585,6 +586,7 @@ namespace Project
             this.btnCab5.TabIndex = 15;
             this.btnCab5.Text = "Cabin 5";
             this.btnCab5.UseVisualStyleBackColor = false;
+            this.btnCab5.Click += new System.EventHandler(this.btnCab5_Click);
             // 
             // pDouble
             // 
@@ -610,6 +612,7 @@ namespace Project
             this.btnCab8.TabIndex = 12;
             this.btnCab8.Text = "Cabin 8";
             this.btnCab8.UseVisualStyleBackColor = false;
+            this.btnCab8.Click += new System.EventHandler(this.btnCab8_Click);
             // 
             // btnCab9
             // 
@@ -623,6 +626,7 @@ namespace Project
             this.btnCab9.TabIndex = 11;
             this.btnCab9.Text = "Cabin 9";
             this.btnCab9.UseVisualStyleBackColor = false;
+            this.btnCab9.Click += new System.EventHandler(this.btnCab9_Click);
             // 
             // btnCab3
             // 
@@ -636,6 +640,7 @@ namespace Project
             this.btnCab3.TabIndex = 8;
             this.btnCab3.Text = "Cabin 3";
             this.btnCab3.UseVisualStyleBackColor = false;
+            this.btnCab3.Click += new System.EventHandler(this.btnCab3_Click);
             // 
             // btnCab4
             // 
@@ -649,6 +654,7 @@ namespace Project
             this.btnCab4.TabIndex = 7;
             this.btnCab4.Text = "Cabin 4";
             this.btnCab4.UseVisualStyleBackColor = false;
+            this.btnCab4.Click += new System.EventHandler(this.btnCab4_Click);
             // 
             // pSuite
             // 
@@ -674,6 +680,7 @@ namespace Project
             this.btnCab6.TabIndex = 14;
             this.btnCab6.Text = "Cabin 6";
             this.btnCab6.UseVisualStyleBackColor = false;
+            this.btnCab6.Click += new System.EventHandler(this.btnCab6_Click);
             // 
             // btnCab7
             // 
@@ -687,6 +694,7 @@ namespace Project
             this.btnCab7.TabIndex = 13;
             this.btnCab7.Text = "Cabin 7";
             this.btnCab7.UseVisualStyleBackColor = false;
+            this.btnCab7.Click += new System.EventHandler(this.btnCab7_Click);
             // 
             // btnCab1
             // 
@@ -714,6 +722,7 @@ namespace Project
             this.btnCab2.TabIndex = 9;
             this.btnCab2.Text = "Cabin 2";
             this.btnCab2.UseVisualStyleBackColor = false;
+            this.btnCab2.Click += new System.EventHandler(this.btnCab2_Click);
             // 
             // bookingsBindingSource
             // 

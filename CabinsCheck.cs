@@ -25,6 +25,22 @@ namespace Project
             txtPhone.Text = frmMain.PhoneNumber.ToString();
             txtCheckIn.Text = frmMain.CheckIn;
             txtCheckOut.Text = frmMain.CheckOut;
+            txtNights.Text = getNights();
+            txtCabinNumber.Text = frmMain.CabinNumber.ToString();
+            txtCabinType.Text = frmMain.CabinType;
+        }
+
+        private string getNights()
+        {
+            string nights;
+            string[] dateIn;
+            string[] dateOut;
+            dateIn = txtCheckIn.Text.Split('-');
+            dateOut = txtCheckOut.Text.Split('-');
+            int i = Convert.ToInt32(dateIn[0]);
+            int j = Convert.ToInt32(dateOut[0]);
+            nights = (j - i).ToString();
+            return nights;
         }
 
         private void imgClose_Click(object sender, EventArgs e)
@@ -59,6 +75,13 @@ namespace Project
                     this.FindAndReplace(application, "<Name>", txtName.Text);
                     this.FindAndReplace(application, "<Surname>", txtSurname.Text);
                     this.FindAndReplace(application, "<Phone>", txtPhone.Text);
+                    this.FindAndReplace(application, "<room>", txtCabinType.Text);
+                    this.FindAndReplace(application, "<nights>", txtNights.Text);
+                    this.FindAndReplace(application, "<rate>", getRate());
+                    this.FindAndReplace(application, "<total>", getTotal());
+                    this.FindAndReplace(application, "<sub>", getTotal());
+                    this.FindAndReplace(application, "<gst>", getGst());
+                    this.FindAndReplace(application, "<due>", (Convert.ToInt32(total)+Convert.ToInt32(gst)).ToString());
                     //document.Save();
                     document.ActiveWindow.Selection.WholeStory();
                     document.ActiveWindow.Selection.Copy();               
@@ -70,6 +93,42 @@ namespace Project
                 }
             }        
         }
+        public string rate;
+        public string gst;
+        public string total;
+        private string getRate()
+        {
+            string suiteC = "300";
+            string doubleC = "200";
+            string singleC = "100";
+            
+            if(txtCabinType.Text == "Suite")
+            {
+                rate = suiteC;
+            }
+            if(txtCabinType.Text == "Double")
+            {
+                rate = doubleC;
+            }
+            else
+            {
+                rate = singleC;
+            }
+
+            return rate;
+        }
+        private string getTotal()
+        {
+            total = (int.Parse(rate) * Convert.ToInt32(txtNights.Text)).ToString();
+            return total;
+        }
+
+        private string getGst()
+        {
+            gst = (Convert.ToInt32(total)* 0.15).ToString();
+            return gst;
+        }
+
         private void FindAndReplace(Microsoft.Office.Interop.Word._Application application,
             object findText, object replaceText)
         {
@@ -104,5 +163,6 @@ namespace Project
         {
             
         }
+
     }
 }
