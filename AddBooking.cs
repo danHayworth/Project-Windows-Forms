@@ -103,6 +103,23 @@ namespace Project
         private void txtPhoneBooking_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            ValidatePhone();
+        }
+        //create phone validation method that returns a boolean
+        private bool ValidatePhone()
+        {
+            bool iStats = true;
+            //if empty then set error
+            if (txtPhoneBooking.Text == "")
+            {
+                errorProvider1.SetError(txtPhoneBooking, "Phone cannot be blank");
+                iStats = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPhoneBooking, "");
+            }
+            return iStats;
         }
 
         //create method to validate date input
