@@ -129,13 +129,7 @@ namespace Project
         {
             //use a try catch for errors
             try
-            {
-                if (txtCabinBook.SelectedItem == null)
-                {
-                    //if null return message
-                    MessageBox.Show("Please select the cabin type");
-                   
-                }
+            {              
                 //if selected cabin is suite then cabin number gets set up with the suite cabin numbers only
                 if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Suite")
                 {
@@ -208,6 +202,23 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //create a validation for cabin type
+        private bool checkCab()
+        {
+            bool isType = false;
+            if (txtCabinBook.SelectedItem == null)
+            {
+                //if null return message
+                MessageBox.Show("Please select the cabin type");
+
+            }
+            else
+            {
+                isType = true;
+            }
+            return isType;
+        }
         //create event to validate the check in
         private void dateInBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -226,7 +237,7 @@ namespace Project
             bool iStats = true;
             DateTime startDate = Convert.ToDateTime(dateInBook.Text);
             DateTime endDate = Convert.ToDateTime(dateOutBook.Text);
-            var daysTotal = (endDate - startDate).TotalDays;
+            int daysTotal = Convert.ToInt32((endDate - startDate).TotalDays);
             if (daysTotal <=0)
             {
                 errorProvider.SetError(dateOutBook, "Check out date cannot be earlier than check in");
@@ -240,13 +251,8 @@ namespace Project
         }
         //create a method to validate the forma on submission
         private void ValidateForm()
-        {
-            bool jValidName = ValidateName();
-            bool jValidSurname = ValidateSurname();
-            bool jValidatePhone = ValidatePhone();
-            bool jValidateId = ValidateIdNumber();
-            bool jValidateDate = ValidateDateOut();
-            if(jValidateDate && jValidateId && jValidatePhone && jValidName && jValidSurname)
+        {        
+            if(ValidateDateOut() && ValidateIdNumber() && ValidatePhone() && ValidateName() && ValidateSurname() && checkCab() && checkNumber())
             {
                 MessageBox.Show("Form has been validated and new guest added!");
                 try
@@ -274,6 +280,22 @@ namespace Project
             ValidateForm();
         }
 
-        
+        private void txtCabinNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            checkNumber();
+        }
+        private bool checkNumber()
+        {
+            bool isNum = false;
+            if(txtCabinNumber.SelectedItem == null)
+            {
+                MessageBox.Show("Select a cabin number");
+            }
+            else
+            {
+                isNum = true;
+            }
+            return isNum;
+        }
     }
 }

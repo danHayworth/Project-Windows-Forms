@@ -33,25 +33,20 @@ namespace Project
         //create a click event for the button
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            //using validation constraints  for validation 
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            //using validation  
+            if (ValidateForm())
             {
-                try
-                {
-                    //if validation passess then a new booking is being created
-                    Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
-                    //adding the booking to the list 
-                    frmMain.booked.Add(newBooking);
-                    //creating a new instance of dashbord form and closing this 
-                    frmMain f = new frmMain();
-                    f.Show();
-                    this.Close();
-                }catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                
+                //if validation passess then a new booking is being created
+                Bookings newBooking = new Bookings(txtNameBooking.Text, txtSurnameBooking.Text, Int32.Parse(txtPhoneBooking.Text), dateInBooking.Text, dateOutBooking.Text, txtNotesBooking.Text);
+                //adding the booking to the list 
+                frmMain.booked.Add(newBooking);
+                //creating a new instance of dashbord form and closing this 
+                frmMain f = new frmMain();
+                f.Show();
+                this.Close();
             }
+            
+           
         }
 
         /************** VALIDATION *************/
@@ -59,9 +54,7 @@ namespace Project
         //if name box is empty do not validate
         private void txtNameBooking_Validating(object sender, CancelEventArgs e)
         {
-
-            ValidateName();
-         
+            ValidateName();      
         }
         private bool ValidateName()
         {
@@ -82,6 +75,7 @@ namespace Project
         private void txtSurnameBooking_Validating(object sender, CancelEventArgs e)
         {
             ValidateSurname();
+            txtPhoneBooking.Focus();
         }
         private bool ValidateSurname()
         {
@@ -91,6 +85,7 @@ namespace Project
             {
                 errorProvider1.SetError(txtSurnameBooking, "Surname cannot be blank");
                 iStats = false;
+
             }
             else
             {
@@ -104,6 +99,7 @@ namespace Project
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             ValidatePhone();
+           
         }
         //create phone validation method that returns a boolean
         private bool ValidatePhone()
@@ -128,7 +124,7 @@ namespace Project
             bool iStats = true;
             DateTime startDate = Convert.ToDateTime(dateInBooking.Text);
             DateTime endDate = Convert.ToDateTime(dateOutBooking.Text);
-            var daysTotal = (endDate - startDate).TotalDays;
+            int daysTotal = Convert.ToInt32((endDate - startDate).TotalDays);
             if (daysTotal <=0 )
             {
                 errorProvider1.SetError(dateOutBooking, "Check out date cannot be earlier or in the same day as check in");
@@ -144,11 +140,26 @@ namespace Project
         private void dateInBooking_Validating(object sender, CancelEventArgs e)
         {
             ValidateDateOut();
+        
         }
 
         private void dateOutBooking_Validating(object sender, CancelEventArgs e)
         {
             ValidateDateOut();
+        }
+        private bool ValidateForm()
+        {
+            bool valid = false;
+            if(ValidateName() && ValidatePhone() && ValidateDateOut() && ValidateSurname())
+            {
+                MessageBox.Show("A new booking has been created");
+                valid = true;
+            }
+            else
+            {
+                MessageBox.Show("Check you input!");
+            }
+            return valid;
         }
     }
 }

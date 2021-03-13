@@ -304,6 +304,7 @@ namespace Project
             this.txtCabinNumber.Name = "txtCabinNumber";
             this.txtCabinNumber.Size = new System.Drawing.Size(278, 30);
             this.txtCabinNumber.TabIndex = 24;
+            this.txtCabinNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtCabinNumber_Validating);
             // 
             // txtCabinBook
             // 
