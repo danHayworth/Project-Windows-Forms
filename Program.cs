@@ -8,14 +8,15 @@ namespace Project
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        /* Student Id: 92060016
+         * Name: Dan hayworth
+         */
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //starting with login form to be able to access dashbord.
             Application.Run(new frmLogin());
         }
     }

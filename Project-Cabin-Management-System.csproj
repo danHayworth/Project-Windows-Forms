@@ -116,8 +116,8 @@
     <Compile Include="AddBooking.Designer.cs">
       <DependentUpon>AddBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bookings.cs" />
-    <Compile Include="Cabins.cs" />
+    <Compile Include="Models\Bookings.cs" />
+    <Compile Include="Models\Cabins.cs" />
     <Compile Include="CabinsCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,8 +130,8 @@
     <Compile Include="CheckIn.Designer.cs">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckingIn.cs" />
-    <Compile Include="Clients.cs" />
+    <Compile Include="Models\CheckingIn.cs" />
+    <Compile Include="Models\Clients.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,7 +146,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users.cs" />
+    <Compile Include="Models\Users.cs" />
     <EmbeddedResource Include="AddBooking.resx">
       <DependentUpon>AddBooking.cs</DependentUpon>
     </EmbeddedResource>

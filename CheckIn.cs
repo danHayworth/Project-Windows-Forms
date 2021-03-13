@@ -6,11 +6,15 @@ namespace Project
 {
     public partial class frmCheckIn : Form
     {
+        /* Student Id: 92060016
+         * Name: Dan Hayworth
+         * Date: 15-03-2021
+         */
         public frmCheckIn()
         {
             InitializeComponent();
         }
-
+        //set up clock
         private void frmCheckIn_Load(object sender, EventArgs e)
         {
             dateInBook.MinDate = DateTime.Now;
@@ -18,7 +22,7 @@ namespace Project
         }
        
         
-
+        // add event to close the form and go back to dashboard
         private void imgClose_Click(object sender, EventArgs e)
         {
             frmMain f = new frmMain();
@@ -26,14 +30,18 @@ namespace Project
             this.Close();
         }
 
+        /************** VALIDATION *************/
+
         private void txtNameBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            //call method to validate name;
             ValidateName();
         }
+        //create method to validate the name
         private bool ValidateName()
         {
             bool iStats = true;
+            //if null provide error
             if (txtNameBook.Text == "")
             {
                 errorProvider.SetError(txtNameBook, "Name cannot be blank");
@@ -45,14 +53,17 @@ namespace Project
             }
             return iStats;
         }
-
+        
         private void txtSurnameBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            //call surname validation method
             ValidateSurname();
         }
+        // create a validfation method for surname
         private bool ValidateSurname()
         {
             bool iStats = true;
+            //if null set error
             if (txtSurnameBook.Text == "")
             {
                 errorProvider.SetError(txtSurnameBook, "Surname cannot be blank");
@@ -65,17 +76,20 @@ namespace Project
             return iStats;
         }
 
-
+        // create event for phone input
         private void txtPhoneBook_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            //setting numerical input only
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            //call phone validating method
             ValidatePhone();
           
         }
+        //create phone validation method that returns a boolean
         private bool ValidatePhone()
         {
             bool iStats = true;
+            //if empty then set error
             if (txtPhoneBook.Text == "")
             {
                 errorProvider.SetError(txtPhoneBook, "Phone cannot be blank");
@@ -87,16 +101,18 @@ namespace Project
             }
             return iStats;
         }
-
+        //create a validation event for Id number
         private void txtIDBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            //call method to validate
             ValidateIdNumber();
             
         }
+        //create a method that will return a boolean 
         private bool ValidateIdNumber()
         {
             bool iStats = true;
+            //if empty set error
             if (txtIDBook.Text == "")
             {
                 errorProvider.SetError(txtIDBook, "Phone cannot be blank");
@@ -108,21 +124,24 @@ namespace Project
             }
             return iStats;
         }
-
+        //create validation event
         private void txtCabinBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
+            //use a try catch for errors
             try
             {
                 if (txtCabinBook.SelectedItem == null)
                 {
+                    //if null return message
                     MessageBox.Show("Please select the cabin type");
                    
                 }
+                //if selected cabin is suite then cabin number gets set up with the suite cabin numbers only
                 if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Suite")
                 {
+                    //set up an array with suite cabin numbers
                     int[] suite = { 1, 2, 6, 7};
-               
+                    //check if cabin already occupied and remove it 
                     foreach (CheckingIn c in frmMain.inCabin)
                     {
                         int a = c.CabinNumber;
@@ -131,16 +150,17 @@ namespace Project
                             suite = suite.Where(val => val != a).ToArray();
                         }
                     }
-                              
+                    //add all cabin numbers to cabin number text box          
                     for (int i = 0; i < suite.Length; i++)
                     {
                         txtCabinNumber.Items.Add(suite[i]);                       
                     }
-                   
+                   // check if there are no cabins left
                     if (suite.Length == 0){
                         MessageBox.Show("All Suite Cabins are occupied please choose a different cabin type!");
                     }
                 }
+                // i will do the same for the next 2 types of cabins
                 if (txtCabinBook.SelectedItem != null && txtCabinBook.SelectedItem.ToString() == "Double")
                 {
                     int[] suite = { 3, 4, 8, 9 };
@@ -188,24 +208,32 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
         }
+        //create event to validate the check in
         private void dateInBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             ValidateDateOut();
         }
+        //create event to validate the check out
         private void dateOutBook_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             ValidateDateOut();
 
         }
+        //create method to validate date input
         private bool ValidateDateOut()
         {
+            //set up a boolean for validation
             bool iStats = true;
+            //create 2 arrays of strings
             string[] dateIn;
             string[] dateOut;
+            //fill in the arrays for comparison
             dateIn = dateInBook.Text.Split('-');
             dateOut = dateOutBook.Text.Split('-');
+            //convert the first number of the date to int for comparison
             int i = Convert.ToInt32(dateIn[0]);
             int j = Convert.ToInt32(dateOut[0]);
+            
             if (j <= i)
             {
                 errorProvider.SetError(dateOutBook, "Check out date cannot be earlier than check in");
@@ -217,6 +245,7 @@ namespace Project
             }
             return iStats;
         }
+        //create a method to validate the forma on submission
         private void ValidateForm()
         {
             bool jValidName = ValidateName();
@@ -229,6 +258,7 @@ namespace Project
                 MessageBox.Show("Form has been validated and new guest added!");
                 try
                 {
+                    //if validated a new guest will be added to list
                     CheckingIn guest = new CheckingIn(txtIDBook.Text, txtIdType.Text, txtNameBook.Text, txtSurnameBook.Text, int.Parse(txtPhoneBook.Text), dateInBook.Text, dateOutBook.Text, txtNotesBook.Text, txtCabinBook.SelectedItem.ToString(), Int32.Parse(txtCabinNumber.SelectedItem.ToString()));
                     frmMain.inCabin.Add(guest);
                     frmMain f = new frmMain();

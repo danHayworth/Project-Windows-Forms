@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project
+﻿namespace Project
 {
-    public class Clients
+    /* Student Id: 92060016
+    * Name: Dan Hayworth
+    * Date: 15-03-2021
+    */
+
+    //create the base client abstract class
+    public abstract class Clients
     {
         public string Name { get; set; }
         public string Surname { get; set; }

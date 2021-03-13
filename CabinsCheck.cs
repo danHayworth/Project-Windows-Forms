@@ -11,11 +11,15 @@ namespace Project
 {
     public partial class frmCabinsCheck : Form
     {
+        /* Student Id: 92060016
+         * Name: Dan Hayworth
+         * Date: 15-03-2021
+         */
         public frmCabinsCheck()
         {
             InitializeComponent();
         }
-
+        //load all details from dashboard specific to the cabin button clicked
         private void frmCabinsCheck_Load(object sender, EventArgs e)
         {
             txtName.Text = frmMain.NameClient;
@@ -27,7 +31,7 @@ namespace Project
             txtCabinNumber.Text = frmMain.CabinNumber.ToString();
             txtCabinType.Text = frmMain.CabinType;
         }
-
+        //calculate how many nights the guest will stay
         private string getNights()
         {
             string nights;
@@ -40,25 +44,27 @@ namespace Project
             nights = (j - i).ToString();
             return nights;
         }
-
+        //close form and return to dashboard
         private void imgClose_Click(object sender, EventArgs e)
         {
             frmMain f = new frmMain();
             f.Show();
             this.Close();
         }
-
+        //link label button
         private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");
         }
-
+        //generate invoice using openfiledialog and a word template
         private void btnShowInv_Click(object sender, EventArgs e)
         {
+            //set up openfiledialog 
             using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames =true, Multiselect =false, Filter = "Word Document|*.docx|Word 97-2003|*.doc|Word Document|*.rtf" })
             {
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
+                    //using Microsoft Office Interop as refference will open a word document
                     object readOnly = false;
                     object visible = true;    
                     object filename = ofd.FileName;
@@ -67,28 +73,36 @@ namespace Project
                     Microsoft.Office.Interop.Word._Document document;
                     Microsoft.Office.Interop.Word._Application application = new Microsoft.Office.Interop.Word.Application() { Visible = false };
                     document = application.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing);
+                    //gets document and edit the fields according to the client in the background
                     document.Activate();
-                    this.FindAndReplace(application, "<Name>", txtName.Text);
-                    this.FindAndReplace(application, "<Surname>", txtSurname.Text);
-                    this.FindAndReplace(application, "<Phone>", txtPhone.Text);
-                    this.FindAndReplace(application, "<room>", txtCabinType.Text);
-                    this.FindAndReplace(application, "<nights>", txtNights.Text);
-                    this.FindAndReplace(application, "<rate>", getRate());
-                    this.FindAndReplace(application, "<total>", getTotal());
-                    this.FindAndReplace(application, "<sub>", getTotal());
-                    this.FindAndReplace(application, "<gst>", getGst());
-                    this.FindAndReplace(application, "<due>", (Convert.ToInt32(total)+Convert.ToInt32(gst)).ToString());                
+                    this.findAndReplace(application, "<Name>", txtName.Text);
+                    this.findAndReplace(application, "<Surname>", txtSurname.Text);
+                    this.findAndReplace(application, "<Phone>", txtPhone.Text);
+                    this.findAndReplace(application, "<room>", txtCabinType.Text);
+                    this.findAndReplace(application, "<nights>", txtNights.Text);
+                    this.findAndReplace(application, "<rate>", getRate());
+                    this.findAndReplace(application, "<total>", getTotal());
+                    this.findAndReplace(application, "<sub>", getTotal());
+                    this.findAndReplace(application, "<gst>", getGst());
+                    this.findAndReplace(application, "<due>", (Convert.ToInt32(total)+Convert.ToInt32(gst)).ToString());   
+                    //select the entire document
                     document.ActiveWindow.Selection.WholeStory();
-                    document.ActiveWindow.Selection.Copy();               
+                    //copy the selection
+                    document.ActiveWindow.Selection.Copy();         
+                    //create a new clipboard
                     IDataObject dataObject = Clipboard.GetDataObject();
+                    //add copied selection to the rich text box
                     richTextBox.Rtf = dataObject.GetData(DataFormats.Rtf).ToString();
+                    //quit application without saving the template with the new details
                     application.Quit(ref saveChanges, ref missing, ref missing);                  
                 }
             }        
         }
+        //set up new strings for rate gst and total for calculations
         public string rate;
         public string gst;
         public string total;
+        //perform calculation for the rate
         private string getRate()
         {
             string suiteC = "300";
@@ -110,19 +124,20 @@ namespace Project
 
             return rate;
         }
+        //calculate toatl invoice
         private string getTotal()
         {
             total = (int.Parse(rate) * Convert.ToInt32(txtNights.Text)).ToString();
             return total;
         }
-
+        //calculate gst
         private string getGst()
         {
             gst = (Convert.ToInt32(total)* 0.15).ToString();
             return gst;
         }
-
-        private void FindAndReplace(Microsoft.Office.Interop.Word._Application application,
+        //method for using find a nd replace  
+        private void findAndReplace(Microsoft.Office.Interop.Word._Application application,
             object findText, object replaceText)
         {
             object matchCase = true;
@@ -145,29 +160,33 @@ namespace Project
                         ref matchDiacritics,
                 ref matchAlefHamza, ref matchControl);
         }
-
+        //set up  a bitmap 
         Bitmap bitmap;
+        //print page created from bitmap
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(bitmap, 0, 0);
         }
-
+        //event for printing invoice
         private void btnPrintInvoice_Click(object sender, EventArgs e)
         {
+            //redeclare the bitmap with details from richtextbox only
             bitmap = new Bitmap(this.richTextBox.Width, this.richTextBox.Height);
             richTextBox.DrawToBitmap(bitmap, new Rectangle(100, 0, this.richTextBox.Width, this.richTextBox.Height));
             printPreviewDialog.Document = printDocument;
             printPreviewDialog.PrintPreviewControl.Zoom = 1.2;
             printPreviewDialog.ShowDialog();
         }
-
+        //print invoice as jpeg using save file dialog
         private void btnSavePdf_Click(object sender, EventArgs e)
         {
+            //create new save file dialog
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             dialog.Title = "InvoiceGuest";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                //set up the codec and parameters for the image
                 ImageCodecInfo myImageCodecInfo;
                 Encoder myEncoder;
                 EncoderParameter myEncoderParameter;
@@ -183,9 +202,11 @@ namespace Project
                 // Save the bitmap as a JPEG file with quality level 75.
                 myEncoderParameter = new EncoderParameter(myEncoder, 75L);
                 myEncoderParameters.Param[0] = myEncoderParameter;
+                //save as jpeg
                 bitmap.Save(dialog.FileName, myImageCodecInfo, myEncoderParameters);
             }
         }
+        //get encoders info for the image 
         private static ImageCodecInfo GetEncoderInfo(String mimeType)
         {
             int j;
@@ -198,7 +219,8 @@ namespace Project
             }
             return null;
         }
-
+        //print messages for emailing invoice
+        //smtp client not set up so is just and event 
         private void btnEmailInvoice_Click(object sender, EventArgs e)
         {
             string email = Interaction.InputBox("Enter your email address", "Add email", " ");

@@ -2,12 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Project
 {
     public partial class frmMain : Form
     {
+        /* Student Id: 92060016
+         * Name: Dan Hayworth
+         * Date: 15-03-2021
+         */
+        // creating lists based on class model
         public static List<Cabins> cabs = new List<Cabins>();
         public static List<CheckingIn> inCabin = new List<CheckingIn>();
         public static List<Bookings> booked = new List<Bookings>();
@@ -15,30 +21,35 @@ namespace Project
         public frmMain()
         {
             InitializeComponent();
+            //adding the logged user to the top of screen
             lblLoggedUSer.Text = frmLogin.loggedUser;
                       
         }
 
+        // adding an event for the link label in the footer
         private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");
         }
 
+        //close the application
         private void imgClose_Click(object sender, EventArgs e)
         {
-            this.Close();
             Application.Exit();
         }
     
-    
+        // creating an event for clock 
         private void timer_tick(object sender, EventArgs e)
         {
             lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        // add events to form loading
         private void frmMain_Load(object sender, EventArgs e)
         { 
-            timer1.Start();         
+            //start timer
+            timer1.Start(); 
+            // add manually the cabins
             Cabins cabin1 = new Cabins(1, "Suite", 1, false);
             Cabins cabin2 = new Cabins(2, "Suite", 2, false);
             Cabins cabin3 = new Cabins(3, "Double", 3, false);
@@ -49,7 +60,7 @@ namespace Project
             Cabins cabin8 = new Cabins(8, "Double", 8, false);
             Cabins cabin9 = new Cabins(9, "Double", 9, false);
             Cabins cabin10 = new Cabins(10, "Single", 10, false);
-            
+            //check if there are cabins already in the list
             if(cabs.Count.Equals(0))
             {
                 cabs.Add(cabin1);
@@ -62,43 +73,58 @@ namespace Project
                 cabs.Add(cabin8);
                 cabs.Add(cabin9);
                 cabs.Add(cabin10);
-            }      
+            }   
+            // add existing clients to the current guests datagridview
             addClients();
+            //add existing booking to the current bookins datagrid
             addBookings();
+            //chekc if room is occupied and change the background colour
             changeColours();
         }       
 
-
+        //create the method for adding clients to the datagridview of current clients
         private void addClients()
         {
+            //setting a boolean for validation
             bool alreadyIn = false;
+            //setting a loop for each guest already checked in
             foreach (CheckingIn c in inCabin)
             {
+                //setting a loop for every row in the datagridview 
                 foreach (DataGridViewRow row in dataClientsView.Rows)
                 {
+                    //creating objects that will pull data from the gridview name and surname columns for comparison
                     object val1 = row.Cells[0].Value;
                     object val2 = row.Cells[1].Value;
+                    //if guest already in provide message
                     if (val1 != null && val1.ToString() == c.Name.ToString() && val2 != null && val2.ToString() == c.Surname.ToString())
                     {
                         alreadyIn = true;
                         MessageBox.Show("Guest already in cabin");
                     }
                 }
+                //if guest is not already in then add new guest to a new row
                 if (!alreadyIn)
                 {
                     dataClientsView.Rows.Add(c.Name, c.Surname,c.Phone, c.CheckIn, c.CheckOut, c.CabinType, c.CabinNumber, c.Notes);
                 }
             }
         }
+        // create method to add new bookins to datagridview
         private void addBookings()
         {
+            //setting a boolean for validation
             bool alreadyIn = false;
+            //setting a loop for every guest in list of bookings
             foreach (Bookings b in booked)
             {
+                //setting up a loop for each row in datagridview
                 foreach (DataGridViewRow row in dataGridBookings.Rows)
                 {
+                    //setting objects with each row value of name and surname columns
                     object val1 = row.Cells[0].Value;
                     object val2 = row.Cells[1].Value;
+                    //checking similarity and returnin message if exists
                     if (val1 != null && val1.ToString() == b.Name.ToString() &&
                         val2 != null && val2.ToString() == b.Surname.ToString())
                     {
@@ -106,6 +132,7 @@ namespace Project
                         MessageBox.Show("Guest already booked");
                     }
                 }
+                //if doesn't exist a new row is added
                 if (!alreadyIn)
                 {
                     dataGridBookings.Rows.Add(b.Name, b.Surname, b.Phone, b.CheckIn, b.CheckOut, b.Notes);
@@ -114,9 +141,10 @@ namespace Project
             }
         }
         
-
+        //creating event for Check in button
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            //close the dashboard form and opens a new instance of checkIn form
             this.Close();
             frmCheckIn frm = new frmCheckIn();
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -124,15 +152,21 @@ namespace Project
             
         }
 
+        //creating event for current bookings
         private void btnBookings_Click(object sender, EventArgs e)
         {
+            //brings datagridview with bookings to the front 
             dataGridBookings.Visible = true;
+            //hide the current clients datagridview 
             dataClientsView.Visible = false;
+            //change the text for the label 
             lblCurent.Text = "Bookings List";
+            //calls update and refresh methods
             dataGridBookings.Update();
             dataGridBookings.Refresh();
         }
 
+        // same as above button but viceversa
         private void btnCurentList_Click(object sender, EventArgs e)
         {
             dataGridBookings.Visible = false;
@@ -142,63 +176,51 @@ namespace Project
             dataClientsView.Refresh();
         }
 
+        // create event for add booking button on click
         private void btnAddBooking_Click(object sender, EventArgs e)
         {
+            //closes the dashboard and creates a new instance of the add booking form
             this.Close();
             frmAddBooking f = new frmAddBooking();
             f.FormBorderStyle = FormBorderStyle.None;
             f.Show();
         }
 
+        
+        
+        // create method for changing colour of the cabin buttons
         private void changeColours()
         {
+            // adding all cabin buttons to a list for iteration 
+            List<Button> btn = new List<Button>();
+            for (int i = 1; i <= 100; i++)
+            {
+                // Construct button name
+                string buttonName = "btnCab" + i;
+
+                // Try to find button with that name
+                Button button = this.Controls.Find(buttonName, true).FirstOrDefault() as Button;
+                // If found, add to list
+               if(button != null)
+                {
+                    btn.Add(button);
+                }     
+            }
+            //create a loop for any of them matching 
             foreach (CheckingIn c in inCabin)
             {
                 int val = c.CabinNumber;
-                if (val == 1)
+                foreach(Button b in btn)
                 {
-                    btnCab1.BackColor = Color.Red;
+                    //if found change colour
+                    if(val == (btn.IndexOf(b) + 1))
+                    {
+                        b.BackColor = Color.Red;
+                    }
                 }
-                if (val == 2)
-                {
-                    btnCab2.BackColor = Color.Red;
-                }
-                if (val == 3)
-                {
-                    btnCab3.BackColor = Color.Red;
-                }
-                if (val == 4)
-                {
-                    btnCab4.BackColor = Color.Red;
-                }
-                if (val == 5)
-                {
-                    btnCab5.BackColor = Color.Red;
-                }
-                if (val == 6)
-                {
-                    btnCab6.BackColor = Color.Red;
-                }
-                if (val == 7)
-                {
-                    btnCab7.BackColor = Color.Red;
-                }
-                if (val == 8)
-                {
-                    btnCab8.BackColor = Color.Red;
-                }
-                if (val == 9)
-                {
-                    btnCab9.BackColor = Color.Red;
-                }
-                if (val == 10)
-                {
-                    btnCab10.BackColor = Color.Red;
-                }
-
             }
         }
-
+        //Setting some variables that can be accessed in the solution
         public static string NameClient;
         public static string Surname;
         public static string CheckIn;
@@ -207,10 +229,13 @@ namespace Project
         public static int CabinNumber;
         public static string CabinType;
 
+        //create a method to get cabin details
         private void getCabinDetails()
         {
+            //loop through the list to match 
             foreach(CheckingIn c in inCabin)
             {
+                //if matched set the variables;
                 if(CabinNumber == c.CabinNumber)
                 {
                     NameClient = c.Name;
@@ -223,6 +248,10 @@ namespace Project
             }
         }
 
+        /* Setting up every cabin button  
+         * On click will set the cabin number and call
+         * get cabin details method
+         */
         private void btnCab1_Click(object sender, EventArgs e)
         {
             
@@ -298,7 +327,7 @@ namespace Project
            
         }
 
-       
+       //create a method to open next form with cabin details
         private void generateCabin()
         {
             bool empty = true;
