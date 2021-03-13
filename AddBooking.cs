@@ -59,36 +59,79 @@ namespace Project
         //if name box is empty do not validate
         private void txtNameBooking_Validating(object sender, CancelEventArgs e)
         {
-    
+
+            ValidateName();
+         
+        }
+        private bool ValidateName()
+        {
+            bool iStats = true;
+            //if null provide error
             if (txtNameBooking.Text == "")
             {
-                MessageBox.Show("Name cannot be blank");
-                btnBooking.Enabled = false;
+                errorProvider1.SetError(txtNameBooking, "Name cannot be blank");
+                iStats = false;
             }
             else
             {
-                btnBooking.Enabled = true;
+                errorProvider1.SetError(txtNameBooking, "");
             }
-         
+            return iStats;
         }
         //if surname box is empty do not validate
         private void txtSurnameBooking_Validating(object sender, CancelEventArgs e)
         {
+            ValidateSurname();
+        }
+        private bool ValidateSurname()
+        {
+            bool iStats = true;
+            //if null set error
             if (txtSurnameBooking.Text == "")
             {
-                MessageBox.Show("Surname cannot be blank");
-                btnBooking.Enabled = false;
+                errorProvider1.SetError(txtSurnameBooking, "Surname cannot be blank");
+                iStats = false;
             }
             else
             {
-                btnBooking.Enabled = true;
+                errorProvider1.SetError(txtSurnameBooking, "");
             }
-
+            return iStats;
         }
+
         // force input to be numeric while still keeping the controls running
         private void txtPhoneBooking_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        //create method to validate date input
+        private bool ValidateDateOut()
+        {
+            bool iStats = true;
+            DateTime startDate = Convert.ToDateTime(dateInBooking.Text);
+            DateTime endDate = Convert.ToDateTime(dateOutBooking.Text);
+            var daysTotal = (endDate - startDate).TotalDays;
+            if (daysTotal <=0 )
+            {
+                errorProvider1.SetError(dateOutBooking, "Check out date cannot be earlier or in the same day as check in");
+                iStats = false;
+            }
+            else
+            {
+                errorProvider1.SetError(dateOutBooking, "");
+            }
+            return iStats;
+        }
+
+        private void dateInBooking_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateDateOut();
+        }
+
+        private void dateOutBooking_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateDateOut();
         }
     }
 }

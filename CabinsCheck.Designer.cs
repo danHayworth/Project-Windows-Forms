@@ -60,6 +60,7 @@ namespace Project
             this.lblNights = new System.Windows.Forms.Label();
             this.btnSavePdf = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnCheckOut = new System.Windows.Forms.Button();
             this.pFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.pHeader.SuspendLayout();
@@ -236,7 +237,7 @@ namespace Project
             this.btnShowInv.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnShowInv.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowInv.ForeColor = System.Drawing.Color.White;
-            this.btnShowInv.Location = new System.Drawing.Point(78, 683);
+            this.btnShowInv.Location = new System.Drawing.Point(78, 622);
             this.btnShowInv.Name = "btnShowInv";
             this.btnShowInv.Size = new System.Drawing.Size(243, 42);
             this.btnShowInv.TabIndex = 15;
@@ -359,11 +360,25 @@ namespace Project
             this.btnSavePdf.UseVisualStyleBackColor = false;
             this.btnSavePdf.Click += new System.EventHandler(this.btnSavePdf_Click);
             // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnCheckOut.Font = new System.Drawing.Font("Trajan Pro", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.ForeColor = System.Drawing.Color.White;
+            this.btnCheckOut.Location = new System.Drawing.Point(78, 688);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(243, 42);
+            this.btnCheckOut.TabIndex = 25;
+            this.btnCheckOut.Text = "Check out";
+            this.btnCheckOut.UseVisualStyleBackColor = false;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
+            // 
             // frmCabinsCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1913, 1022);
+            this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.btnSavePdf);
             this.Controls.Add(this.txtNights);
             this.Controls.Add(this.lblNights);
@@ -435,5 +450,6 @@ namespace Project
         private System.Windows.Forms.Label lblNights;
         private System.Windows.Forms.Button btnSavePdf;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button btnCheckOut;
     }
 }

@@ -224,17 +224,10 @@ namespace Project
         {
             //set up a boolean for validation
             bool iStats = true;
-            //create 2 arrays of strings
-            string[] dateIn;
-            string[] dateOut;
-            //fill in the arrays for comparison
-            dateIn = dateInBook.Text.Split('-');
-            dateOut = dateOutBook.Text.Split('-');
-            //convert the first number of the date to int for comparison
-            int i = Convert.ToInt32(dateIn[0]);
-            int j = Convert.ToInt32(dateOut[0]);
-            
-            if (j <= i)
+            DateTime startDate = Convert.ToDateTime(dateInBook.Text);
+            DateTime endDate = Convert.ToDateTime(dateOutBook.Text);
+            var daysTotal = (endDate - startDate).TotalDays;
+            if (daysTotal <=0)
             {
                 errorProvider.SetError(dateOutBook, "Check out date cannot be earlier than check in");
                 iStats = false;

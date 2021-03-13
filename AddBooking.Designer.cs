@@ -29,6 +29,7 @@ namespace Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddBooking));
             this.txtNotesBooking = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,7 +45,9 @@ namespace Project
             this.txtPhoneBooking = new System.Windows.Forms.TextBox();
             this.lblPhoneBooking = new System.Windows.Forms.Label();
             this.imgClose = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNotesBooking
@@ -91,6 +94,7 @@ namespace Project
             this.dateOutBooking.Size = new System.Drawing.Size(278, 25);
             this.dateOutBooking.TabIndex = 30;
             this.dateOutBooking.Value = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
+            this.dateOutBooking.Validating += new System.ComponentModel.CancelEventHandler(this.dateOutBooking_Validating);
             // 
             // dateInBooking
             // 
@@ -104,6 +108,7 @@ namespace Project
             this.dateInBooking.Size = new System.Drawing.Size(278, 25);
             this.dateInBooking.TabIndex = 29;
             this.dateInBooking.Value = new System.DateTime(2021, 3, 5, 0, 0, 0, 0);
+            this.dateInBooking.Validating += new System.ComponentModel.CancelEventHandler(this.dateInBooking_Validating);
             // 
             // txtSurnameBooking
             // 
@@ -193,6 +198,10 @@ namespace Project
             this.imgClose.TabStop = false;
             this.imgClose.Click += new System.EventHandler(this.imgClose_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAddBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,6 +229,7 @@ namespace Project
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmAddBooking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +250,6 @@ namespace Project
         private System.Windows.Forms.TextBox txtPhoneBooking;
         private System.Windows.Forms.Label lblPhoneBooking;
         private System.Windows.Forms.PictureBox imgClose;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

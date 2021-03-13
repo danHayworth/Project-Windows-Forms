@@ -33,15 +33,11 @@ namespace Project
         }
         //calculate how many nights the guest will stay
         private string getNights()
-        {
-            string nights;
-            string[] dateIn;
-            string[] dateOut;
-            dateIn = txtCheckIn.Text.Split('-');
-            dateOut = txtCheckOut.Text.Split('-');
-            int i = Convert.ToInt32(dateIn[0]);
-            int j = Convert.ToInt32(dateOut[0]);
-            nights = (j - i).ToString();
+        {         
+            DateTime startDate = Convert.ToDateTime(txtCheckIn.Text);
+            DateTime endDate = Convert.ToDateTime(txtCheckOut.Text);
+            var daysTotal = (endDate - startDate).TotalDays;
+            string nights = daysTotal.ToString();
             return nights;
         }
         //close form and return to dashboard
@@ -59,6 +55,7 @@ namespace Project
         //generate invoice using openfiledialog and a word template
         private void btnShowInv_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Please use CabinInvoice.docx provided along with this software.", "Important!");
             //set up openfiledialog 
             using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames =true, Multiselect =false, Filter = "Word Document|*.docx|Word 97-2003|*.doc|Word Document|*.rtf" })
             {
@@ -225,6 +222,29 @@ namespace Project
         {
             string email = Interaction.InputBox("Enter your email address", "Add email", " ");
             MessageBox.Show("An email has been sent to " + email, "Confirmation");
+        }
+        //checkout button
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            bool stillIn = true;
+            //loop through the list to find the curent client
+            foreach(CheckingIn c in frmMain.inCabin)
+            {
+                if(txtName.Text == c.Name && txtSurname.Text == c.Surname && txtCabinNumber.Text == c.CabinNumber.ToString())
+                {
+                    //if match then remove the client
+                    frmMain.inCabin.Remove(c);
+                    stillIn = false;
+                    break;
+                }
+            }
+            //if removed then return to main
+            if (!stillIn)
+            {
+                frmMain f = new frmMain();
+                f.Show();
+                this.Close();
+            }
         }
     }
 }
